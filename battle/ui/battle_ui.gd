@@ -23,9 +23,18 @@ func _unhandled_input(event: InputEvent) -> void:
 		if !hovered_ships.is_empty(): _select_ships()
 		else: _start_area_selection()
 	
-	if event.is_action_released("ui_click"):
+	elif event.is_action_released("ui_click"):
 		_end_area_selection()
-		_select_ships() # TODO logic
+		_select_ships()
+	
+	elif event.is_action_pressed("ui_shift_alt_click"):
+		print("shiftaltclick")
+		_add_ship_waypoint()
+	
+	elif event.is_action_pressed("ui_alt_click"):
+		print("rmb")
+		_set_ship_waypoint()
+
 
 # -- hovering and selection
 
@@ -33,13 +42,13 @@ func _unhandled_input(event: InputEvent) -> void:
 func _on_ship_hovered(ship):
 	if !hovered_ships.has(ship): 
 		hovered_ships[ship] = true
-		print("bui hovered ship received, ", hovered_ships)
+		#print("bui hovered ship received, ", hovered_ships)
 
 
 func _on_ship_unhovered(ship):
 	if hovered_ships.has(ship): 
 		hovered_ships.erase(ship)
-		print("bui hovered ship left, ", hovered_ships)
+		#print("bui hovered ship left, ", hovered_ships)
 
 
 func _select_ships():
@@ -62,4 +71,17 @@ func _start_area_selection():
 
 func _end_area_selection():
 	selection_area.end_selection()
-	print("selection ended: ", hovered_ships)
+	#print("selection ended: ", hovered_ships)
+
+
+# -- ship moving
+
+
+func _set_ship_waypoint():
+	for ship : Ship in selected_ships:
+		ship.waypoint_manager.set_waypoint(get_global_mouse_position())
+
+
+func _add_ship_waypoint():
+	for ship : Ship in selected_ships:
+		ship.waypoint_manager.add_waypoint(get_global_mouse_position())

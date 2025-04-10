@@ -3,4 +3,8 @@
 [ext_resource type="Script" uid="uid://ba57g1ukx3e85" path="res://battle/ship/waypoints/ship_waypoint_manager.gd" id="1_y1bko"]
 
 [node name="WaypointManager" type="Node2D"]
+top_level = true
 script = ExtResource("1_y1bko")
+
+[node name="Firstline" type="Line2D" parent="."]
+default_color = Color(1, 1, 0, 1)

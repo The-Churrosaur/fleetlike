@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://s4yeld6eym2i"]
+[gd_scene load_steps=7 format=3 uid="uid://s4yeld6eym2i"]
 
 [ext_resource type="Script" uid="uid://27hy2qdjricv" path="res://battle/ship/ship.gd" id="1_i3cap"]
 [ext_resource type="Texture2D" uid="uid://6osj1td72qmh" path="res://_assets/icon.svg" id="2_b20f4"]
+[ext_resource type="Script" uid="uid://uiyxq26ocj8o" path="res://battle/ship/ship_hover_area.gd" id="3_gfkql"]
+[ext_resource type="PackedScene" uid="uid://iomh2fcqexva" path="res://battle/ship/waypoints/ship_waypoint_manager.tscn" id="4_ayqqx"]
+[ext_resource type="PackedScene" uid="uid://daxixkwymkrod" path="res://battle/ship/ship_mover.tscn" id="5_px0gm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b20f4"]
 radius = 32.0
@@ -12,18 +15,26 @@ script = ExtResource("1_i3cap")
 [node name="SelectionSprite" type="Sprite2D" parent="."]
 visible = false
 rotation = 0.785398
-scale = Vector2(1, 1)
 texture = ExtResource("2_b20f4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_b20f4")
 
-[node name="SelectionArea" type="Area2D" parent="."]
+[node name="HoverArea" type="Area2D" parent="." node_paths=PackedStringArray("ship")]
+script = ExtResource("3_gfkql")
+ship = NodePath("..")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SelectionArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HoverArea"]
 shape = SubResource("CircleShape2D_b20f4")
 
-[connection signal="area_entered" from="SelectionArea" to="." method="_on_selection_area_area_entered"]
-[connection signal="area_exited" from="SelectionArea" to="." method="_on_selection_area_area_exited"]
-[connection signal="mouse_entered" from="SelectionArea" to="." method="_on_selection_area_mouse_entered"]
-[connection signal="mouse_exited" from="SelectionArea" to="." method="_on_selection_area_mouse_exited"]
+[node name="WaypointManager" parent="." node_paths=PackedStringArray("ship") instance=ExtResource("4_ayqqx")]
+ship = NodePath("..")
+
+[node name="ShipMover" parent="." node_paths=PackedStringArray("ship", "waypoint_manager") instance=ExtResource("5_px0gm")]
+ship = NodePath("..")
+waypoint_manager = NodePath("../WaypointManager")
+
+[connection signal="area_entered" from="HoverArea" to="HoverArea" method="_on_area_entered"]
+[connection signal="area_exited" from="HoverArea" to="HoverArea" method="_on_area_exited"]
+[connection signal="mouse_entered" from="HoverArea" to="HoverArea" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="HoverArea" to="HoverArea" method="_on_mouse_exited"]
