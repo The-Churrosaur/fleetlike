@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://wiimkx4pcb5r"]
+
+[ext_resource type="Script" uid="uid://dxykqtawnur7y" path="res://battle/ui/battle_ui_event_bus.gd" id="1_ppcwe"]
+
+[node name="BattleUIEventBus" type="Node"]
+script = ExtResource("1_ppcwe")

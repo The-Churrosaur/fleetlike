@@ -1,0 +1,2 @@
+class_name ShipWaypoint
+extends Node2D

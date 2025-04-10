@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://s4yeld6eym2i"]
+
+[ext_resource type="Script" uid="uid://27hy2qdjricv" path="res://battle/ship/ship.gd" id="1_i3cap"]
+[ext_resource type="Texture2D" uid="uid://6osj1td72qmh" path="res://_assets/icon.svg" id="2_b20f4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b20f4"]
+radius = 32.0
+
+[node name="Ship" type="Node2D"]
+script = ExtResource("1_i3cap")
+
+[node name="SelectionSprite" type="Sprite2D" parent="."]
+visible = false
+rotation = 0.785398
+scale = Vector2(1, 1)
+texture = ExtResource("2_b20f4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_b20f4")
+
+[node name="SelectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SelectionArea"]
+shape = SubResource("CircleShape2D_b20f4")
+
+[connection signal="area_entered" from="SelectionArea" to="." method="_on_selection_area_area_entered"]
+[connection signal="area_exited" from="SelectionArea" to="." method="_on_selection_area_area_exited"]
+[connection signal="mouse_entered" from="SelectionArea" to="." method="_on_selection_area_mouse_entered"]
+[connection signal="mouse_exited" from="SelectionArea" to="." method="_on_selection_area_mouse_exited"]

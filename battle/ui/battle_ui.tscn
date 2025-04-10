@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://d32mj4aiu8e4n"]
+
+[ext_resource type="Script" uid="uid://dwo8wu7m721sh" path="res://battle/ui/battle_ui.gd" id="1_aa86s"]
+[ext_resource type="PackedScene" uid="uid://ckk14datap7cd" path="res://battle/ui/selection/ship_selection_area.tscn" id="2_ruxnv"]
+
+[node name="BattleUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_aa86s")
+
+[node name="SelectionArea" parent="." instance=ExtResource("2_ruxnv")]

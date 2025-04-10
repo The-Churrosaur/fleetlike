@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwcve7yl0mp1"]
+
+[ext_resource type="Script" uid="uid://bk6qlqq8fkj5t" path="res://_globals/game_manager.gd" id="1_lhsbv"]
+[ext_resource type="Resource" uid="uid://b88s6hqbvl0" path="res://_test_data/player_fleet.tres" id="2_i1c4i"]
+[ext_resource type="Resource" uid="uid://dut8ahh1fjuj7" path="res://_test_data/enemy_fleet.tres" id="3_ryq8w"]
+
+[node name="GameManager" type="Node2D"]
+script = ExtResource("1_lhsbv")
+player_fleet = ExtResource("2_i1c4i")
+enemy_fleet = ExtResource("3_ryq8w")

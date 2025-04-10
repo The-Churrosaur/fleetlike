@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="FleetData" load_steps=5 format=3 uid="uid://b88s6hqbvl0"]
+
+[ext_resource type="Script" uid="uid://bf63qct6m5xby" path="res://fleet/fleet_data.gd" id="1_yulkn"]
+[ext_resource type="Script" uid="uid://qaixdu0mhtc2" path="res://fleet/ship_data.gd" id="2_07ypw"]
+
+[sub_resource type="Resource" id="Resource_yulkn"]
+script = ExtResource("2_07ypw")
+player_ship = true
+spawn_position = Vector2(100, 100)
+metadata/_custom_type_script = "uid://qaixdu0mhtc2"
+
+[sub_resource type="Resource" id="Resource_07ypw"]
+script = ExtResource("2_07ypw")
+player_ship = true
+spawn_position = Vector2(200, 200)
+metadata/_custom_type_script = "uid://qaixdu0mhtc2"
+
+[resource]
+script = ExtResource("1_yulkn")
+player_fleet = false
+ships = Array[ExtResource("2_07ypw")]([SubResource("Resource_yulkn"), SubResource("Resource_07ypw")])
+metadata/_custom_type_script = "uid://bf63qct6m5xby"
