@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0k2eppyt36hg"]
+
+[ext_resource type="Script" uid="uid://d1i5vowghnwya" path="res://battle/ui/selection/area_select_line.gd" id="1_1fjpi"]
+
+[node name="AreaSelectLine" type="Line2D"]
+script = ExtResource("1_1fjpi")

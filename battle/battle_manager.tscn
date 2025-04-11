@@ -1,21 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://ckfdui6g7pnlv"]
+[gd_scene load_steps=6 format=3 uid="uid://ckfdui6g7pnlv"]
 
 [ext_resource type="Script" uid="uid://emxpvqmftq7n" path="res://battle/battle_manager.gd" id="1_t73rl"]
 [ext_resource type="PackedScene" uid="uid://ux6ikkwr24a7" path="res://battle/map.tscn" id="2_xin7u"]
-[ext_resource type="PackedScene" uid="uid://d32mj4aiu8e4n" path="res://battle/ui/battle_ui.tscn" id="3_xin7u"]
+[ext_resource type="PackedScene" uid="uid://d32mj4aiu8e4n" path="res://battle/controller/battle_controller.tscn" id="3_xin7u"]
+[ext_resource type="PackedScene" uid="uid://dxlbx2oqqnti3" path="res://battle/camera/battle_camera.tscn" id="4_cpgs5"]
+[ext_resource type="PackedScene" uid="uid://b4vdhj0d8j3vu" path="res://battle/ui/battle_ui_canvas.tscn" id="4_n2upc"]
 
-[node name="BattleManager" type="Node2D" node_paths=PackedStringArray("ui", "camera")]
+[node name="BattleManager" type="Node2D" node_paths=PackedStringArray("controller", "ui_canvas", "camera")]
 script = ExtResource("1_t73rl")
-ui = NodePath("CanvasLayer/BattleUI")
-camera = NodePath("Camera2D")
+controller = NodePath("BattleController")
+ui_canvas = NodePath("BattleUICanvas")
+camera = NodePath("BattleCamera")
 
 [node name="Map" parent="." instance=ExtResource("2_xin7u")]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
+[node name="BattleController" parent="." node_paths=PackedStringArray("battle_manager") instance=ExtResource("3_xin7u")]
+battle_manager = NodePath("..")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="BattleCamera" parent="." instance=ExtResource("4_cpgs5")]
 
-[node name="BattleUI" parent="CanvasLayer" node_paths=PackedStringArray("battle_manager") instance=ExtResource("3_xin7u")]
-mouse_filter = 1
-battle_manager = NodePath("../..")
+[node name="BattleUICanvas" parent="." instance=ExtResource("4_n2upc")]

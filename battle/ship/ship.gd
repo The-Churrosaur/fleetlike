@@ -2,13 +2,14 @@
 ## the rendered manifestation of a ship in battle
 
 class_name Ship
-extends Node2D
+extends RigidBody2D
 
 
 @onready var waypoint_manager: ShipWaypointManager = $WaypointManager
 @onready var rotation_dolly: Node2D = $RotationDolly
 
 var player_ship = false
+var faction = "default"
 
 
 # -- public

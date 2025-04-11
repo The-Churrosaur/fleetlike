@@ -9,20 +9,11 @@ signal new_current_waypoint(waypoint)
 
 @export var ship : Ship
 
-@onready var firstline: Line2D = $Firstline
 
 var current_waypoint : ShipWaypoint:
 	set(new_waypoint):
 		current_waypoint = new_waypoint
 		if current_waypoint: new_current_waypoint.emit(current_waypoint)
-
-
-func _physics_process(delta: float) -> void:
-	
-	if current_waypoint:
-		firstline.clear_points()
-		firstline.add_point(firstline.to_local(ship.global_position), 0)
-		firstline.add_point(firstline.to_local(current_waypoint.global_position), 1)
 
 
 ## appends a waypoint
@@ -55,10 +46,7 @@ func set_waypoint(waypoint_position : Vector2):
 	current_waypoint.print_list()
 
 
-func remove_waypoints():
-	if current_waypoint: current_waypoint.remove_waypoints()
-
-
+## call to set current waypoint completed
 func current_waypoint_completed():
 	#print("waypoint manager: current waypoint completed: ", current_waypoint)
 	var next = current_waypoint.next_waypoint
@@ -67,5 +55,19 @@ func current_waypoint_completed():
 	current_waypoint = next
 
 
+# -- list management
+
+
+func remove_waypoints():
+	if current_waypoint: current_waypoint.remove_waypoints()
+
+
 func get_last_waypoint():
 	return current_waypoint.get_last_waypoint()
+
+
+## returns in reverse order
+func get_waypoints():
+	var waypoints = []
+	if current_waypoint: current_waypoint.get_waypoints(waypoints)
+	return waypoints

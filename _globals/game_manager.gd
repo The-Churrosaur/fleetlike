@@ -22,5 +22,3 @@ func _ready() -> void:
 	battle.load_fleet(enemy_fleet)
 	
 	GameGlobals.current_level = battle
-	GameGlobals.current_ui = battle.ui
-	GameGlobals.current_camera = battle.camera

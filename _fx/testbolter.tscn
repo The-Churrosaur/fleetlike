@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ogeqnmtb8tsu"]
+
+[ext_resource type="Script" uid="uid://b4nql2y1vebkp" path="res://_fx/testbolter.gd" id="1_or8t0"]
+
+[node name="Testbolter" type="Node2D"]
+script = ExtResource("1_or8t0")

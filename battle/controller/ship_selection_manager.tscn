@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://de3p2ipojaidu"]
+
+[ext_resource type="Script" uid="uid://gcbf8k82pjye" path="res://battle/controller/ship_selection_manager.gd" id="1_68oym"]
+[ext_resource type="PackedScene" uid="uid://ckk14datap7cd" path="res://battle/controller/ship_selection_area.tscn" id="2_sf5vl"]
+
+[node name="ShipSelectionManager" type="Node2D"]
+script = ExtResource("1_68oym")
+
+[node name="SelectionArea" parent="." instance=ExtResource("2_sf5vl")]

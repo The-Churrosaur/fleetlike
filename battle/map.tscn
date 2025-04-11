@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://ux6ikkwr24a7"]
+[gd_scene load_steps=3 format=3 uid="uid://ux6ikkwr24a7"]
 
 [ext_resource type="Texture2D" uid="uid://xk6rob3yl4b7" path="res://_assets/Stars.png" id="1_qhsoi"]
+[ext_resource type="Script" uid="uid://cwch57j6eqbda" path="res://battle/temp_moving_background.gd" id="2_3x5dn"]
 
 [node name="Map" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(474, 302)
 texture = ExtResource("1_qhsoi")
+script = ExtResource("2_3x5dn")

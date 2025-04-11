@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://yp11fke6xms5"]
+
+[ext_resource type="Script" uid="uid://c641wfp5erpwd" path="res://battle/ui/ship/selected_ship_ui_manager.gd" id="1_rpinx"]
+
+[node name="SelectedShipUIManager" type="Node2D"]
+script = ExtResource("1_rpinx")

@@ -1,4 +1,7 @@
 
+## currently ship's area handles getting hovered through area methods.
+## passes through ui bus to battle ui
+
 class_name ShipHoverArea
 extends Area2D
 

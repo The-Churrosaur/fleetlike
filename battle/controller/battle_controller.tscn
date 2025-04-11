@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://d32mj4aiu8e4n"]
+
+[ext_resource type="Script" uid="uid://dwo8wu7m721sh" path="res://battle/controller/battle_controller.gd" id="1_oj5x6"]
+[ext_resource type="PackedScene" uid="uid://de3p2ipojaidu" path="res://battle/controller/ship_selection_manager.tscn" id="2_hj4j3"]
+
+[node name="BattleController" type="Node2D"]
+script = ExtResource("1_oj5x6")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "dfsdfsfsafsafsfsd"
+
+[node name="ShipSelectionManager" parent="." instance=ExtResource("2_hj4j3")]

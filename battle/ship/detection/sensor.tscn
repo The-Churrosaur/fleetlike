@@ -3,4 +3,9 @@
 [ext_resource type="Script" uid="uid://3jrggf827l1p" path="res://battle/ship/detection/sensor.gd" id="1_h6d3n"]
 
 [node name="Sensor" type="Area2D"]
+collision_layer = 0
+collision_mask = 16
 script = ExtResource("1_h6d3n")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6dyt6knexraj"]
+
+[ext_resource type="Texture2D" uid="uid://dcyoljmcooldo" path="res://_assets/kylebold.png" id="1_a5753"]
+[ext_resource type="Texture2D" uid="uid://boa6fwrackrk5" path="res://_assets/kylebold2png.png" id="2_uoca0"]
+[ext_resource type="Script" uid="uid://d4jkkrvsxwt2t" path="res://_fx/testbolt.gd" id="3_uoca0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ou36j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_a5753")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_uoca0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("3_uoca0")
+
+[node name="Testbolt" type="AnimatedSprite2D" parent="."]
+rotation = 1.55939
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_ou36j")
+autoplay = "default"
+frame_progress = 0.487219

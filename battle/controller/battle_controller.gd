@@ -1,8 +1,8 @@
 
 ## also input parser
 
-class_name BattleUI
-extends Control
+class_name BattleController
+extends Controller
 
 
 @export var battle_manager : BattleManager
