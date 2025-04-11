@@ -23,3 +23,4 @@ func _ready() -> void:
 	
 	GameGlobals.current_level = battle
 	GameGlobals.current_ui = battle.ui
+	GameGlobals.current_camera = battle.camera

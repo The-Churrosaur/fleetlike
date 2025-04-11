@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://7707jp6hme5c"]
+
+[ext_resource type="Script" uid="uid://b66a8ye33u10o" path="res://_fx/flicker_drive.gd" id="1_qv1h5"]
+[ext_resource type="Texture2D" uid="uid://dfqgp4020lbjc" path="res://_assets/kyleflare.png" id="2_0qpwr"]
+[ext_resource type="Texture2D" uid="uid://b8xj2ie4smq4g" path="res://_assets/kyleflare2.png" id="3_0qpwr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e5qrf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0qpwr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0qpwr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="FlickerDrive" type="Node2D"]
+script = ExtResource("1_qv1h5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(19, -1.7053e-13)
+rotation = 1.5708
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_e5qrf")
+frame_progress = 0.636919

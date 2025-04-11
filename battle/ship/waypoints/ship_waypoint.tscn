@@ -1,13 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://biy2ncf70ifyh"]
 
 [ext_resource type="Script" uid="uid://mqcleybhhbvj" path="res://battle/ship/waypoints/ship_waypoint.gd" id="1_8v7db"]
-[ext_resource type="Texture2D" uid="uid://6osj1td72qmh" path="res://_assets/icon.svg" id="2_sxrus"]
+[ext_resource type="Texture2D" uid="uid://bdhrhbsrplhj7" path="res://_assets/square_321.png" id="2_sxrus"]
 
 [node name="Waypoint" type="Node2D"]
 script = ExtResource("1_8v7db")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
+rotation = 0.785398
 texture = ExtResource("2_sxrus")
 
 [node name="Line2D" type="Line2D" parent="."]
+width = 1.0
+default_color = Color(0, 1, 0, 1)

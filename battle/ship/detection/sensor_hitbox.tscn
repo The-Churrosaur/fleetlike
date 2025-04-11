@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgirvqoldups6"]
+
+[ext_resource type="Script" uid="uid://bx5lqjtyr88mi" path="res://battle/ship/detection/sensor_hitbox.gd" id="1_roomq"]
+
+[node name="SensorHitbox" type="Area2D"]
+script = ExtResource("1_roomq")

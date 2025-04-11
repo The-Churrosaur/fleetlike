@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgwdrxfvdphwe"]
+
+[ext_resource type="Script" uid="uid://3jrggf827l1p" path="res://battle/ship/detection/sensor.gd" id="1_h6d3n"]
+
+[node name="Sensor" type="Area2D"]
+script = ExtResource("1_h6d3n")

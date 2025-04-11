@@ -31,13 +31,13 @@ func add_waypoint(waypoint_position : Vector2):
 	add_child(new_waypoint)
 	new_waypoint.init(waypoint_position)
 	
-	#print("wm adding new waypoint: ", new_waypoint)
+	print("wm adding new waypoint: ", new_waypoint)
 	
 	if !current_waypoint: current_waypoint = new_waypoint
 	else: current_waypoint.add_waypoint(new_waypoint)
 	
-	#print("new list: ")
-	#current_waypoint.print_list()
+	print("new list: ")
+	current_waypoint.print_list()
 
 
 ## deletes and sets new waypoint
@@ -50,6 +50,9 @@ func set_waypoint(waypoint_position : Vector2):
 	new_waypoint.init(waypoint_position)
 	
 	current_waypoint = new_waypoint
+	
+	print("NEW WAYPOINT ADDED: ")
+	current_waypoint.print_list()
 
 
 func remove_waypoints():

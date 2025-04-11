@@ -4,11 +4,18 @@
 [ext_resource type="PackedScene" uid="uid://ux6ikkwr24a7" path="res://battle/map.tscn" id="2_xin7u"]
 [ext_resource type="PackedScene" uid="uid://d32mj4aiu8e4n" path="res://battle/ui/battle_ui.tscn" id="3_xin7u"]
 
-[node name="BattleManager" type="Node2D" node_paths=PackedStringArray("ui")]
+[node name="BattleManager" type="Node2D" node_paths=PackedStringArray("ui", "camera")]
 script = ExtResource("1_t73rl")
-ui = NodePath("BattleUI")
+ui = NodePath("CanvasLayer/BattleUI")
+camera = NodePath("Camera2D")
 
 [node name="Map" parent="." instance=ExtResource("2_xin7u")]
 
-[node name="BattleUI" parent="." node_paths=PackedStringArray("battle_manager") instance=ExtResource("3_xin7u")]
-battle_manager = NodePath("..")
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BattleUI" parent="CanvasLayer" node_paths=PackedStringArray("battle_manager") instance=ExtResource("3_xin7u")]
+mouse_filter = 1
+battle_manager = NodePath("../..")

@@ -39,6 +39,11 @@ ui_shift_alt_click={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_5="sensor_detection"
+avoidance/layer_5="sensor_detection"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

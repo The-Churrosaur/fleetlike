@@ -9,3 +9,7 @@ script = ExtResource("1_nfwar")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_nfwar")
+
+[node name="Line2D" type="Line2D" parent="."]
+width = 1.0
+default_color = Color(0, 1, 0, 1)
