@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://me67jcpanbom"]
+
+[ext_resource type="Script" uid="uid://bnui28sqhi08p" path="res://battle/ship/damage/physical/ship_hitbox.gd" id="1_i8wxk"]
+
+[node name="ShipHitbox" type="Area2D"]
+collision_layer = 0
+collision_mask = 32
+script = ExtResource("1_i8wxk")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

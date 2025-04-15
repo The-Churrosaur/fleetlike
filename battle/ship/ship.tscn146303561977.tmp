@@ -1,0 +1,181 @@
+[gd_scene load_steps=28 format=3 uid="uid://s4yeld6eym2i"]
+
+[ext_resource type="Script" uid="uid://27hy2qdjricv" path="res://battle/ship/ship.gd" id="1_i3cap"]
+[ext_resource type="PackedScene" uid="uid://cvrk67delgddm" path="res://battle/ship/damage/physical/ship_hurtbox.tscn" id="2_danqt"]
+[ext_resource type="Script" uid="uid://uiyxq26ocj8o" path="res://battle/ship/ship_hover_area.gd" id="3_gfkql"]
+[ext_resource type="PackedScene" uid="uid://iomh2fcqexva" path="res://battle/ship/waypoints/ship_waypoint_manager.tscn" id="4_ayqqx"]
+[ext_resource type="Texture2D" uid="uid://1oimbdegdj8a" path="res://_assets/kyleship.png" id="5_es0s5"]
+[ext_resource type="PackedScene" uid="uid://daxixkwymkrod" path="res://battle/ship/ship_mover.tscn" id="5_px0gm"]
+[ext_resource type="PackedScene" uid="uid://7707jp6hme5c" path="res://_fx/flicker_drive.tscn" id="6_es0s5"]
+[ext_resource type="PackedScene" uid="uid://dkcwtctqpfays" path="res://battle/ship/components/component_manager.tscn" id="6_m0d6l"]
+[ext_resource type="Script" uid="uid://bymhfkbipujam" path="res://_fx/shadow_sprite.gd" id="6_njepq"]
+[ext_resource type="PackedScene" uid="uid://c2yd5hjvridcs" path="res://battle/ship/components/ship_component.tscn" id="10_kj2t3"]
+[ext_resource type="PackedScene" uid="uid://chfo20yjsyxsq" path="res://_fx/rcs_fx.tscn" id="11_m0d6l"]
+[ext_resource type="Texture2D" uid="uid://bbn0u35ipmqli" path="res://_assets/kyle_rcs.png" id="12_danqt"]
+[ext_resource type="PackedScene" uid="uid://coqqu0wbgy5gy" path="res://battle/ship/damage/ship_health.tscn" id="12_txejx"]
+[ext_resource type="Texture2D" uid="uid://bbniqdm4wusop" path="res://_assets/kyle_rcs2.png" id="13_4fpin"]
+[ext_resource type="PackedScene" uid="uid://me67jcpanbom" path="res://battle/ship/damage/physical/ship_hitbox.tscn" id="16_pjxee"]
+[ext_resource type="PackedScene" uid="uid://ljrsdut67m7b" path="res://battle/ship/weapons/fire_control_manager.tscn" id="17_6fnym"]
+[ext_resource type="PackedScene" uid="uid://jugb84kvyeh0" path="res://battle/ship/weapons/weapons/test_weapon.tscn" id="17_pjxee"]
+[ext_resource type="PackedScene" uid="uid://dgwdrxfvdphwe" path="res://battle/ship/detection/sensor.tscn" id="19_2hj83"]
+[ext_resource type="PackedScene" uid="uid://cgirvqoldups6" path="res://battle/ship/detection/sensor_hurtbox.tscn" id="19_6fnym"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m0d6l"]
+radius = 16.0
+height = 100.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b20f4"]
+radius = 32.0
+
+[sub_resource type="Curve" id="Curve_pa6xx"]
+_limits = [0.0, 1.0, 0.0, 500.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(216.667, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_txejx"]
+curve = SubResource("Curve_pa6xx")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kj2t3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_danqt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_4fpin")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xs52s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yrxkm"]
+radius = 256.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2hj83"]
+
+[node name="Ship" type="RigidBody2D"]
+linear_damp = 1.0
+angular_damp = 1.0
+script = ExtResource("1_i3cap")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_m0d6l")
+
+[node name="MainSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = 1.5708
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_es0s5")
+
+[node name="ShadowSprite" type="Sprite2D" parent="MainSprite"]
+self_modulate = Color(0, 0, 0, 1)
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(-15, -15)
+scale = Vector2(1.05737, 1.05737)
+texture = ExtResource("5_es0s5")
+script = ExtResource("6_njepq")
+
+[node name="ShipHurtbox" parent="." node_paths=PackedStringArray("health") instance=ExtResource("2_danqt")]
+health = NodePath("../ShipHealth")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShipHurtbox"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_m0d6l")
+
+[node name="ShipHealth" parent="." instance=ExtResource("12_txejx")]
+
+[node name="HoverArea" type="Area2D" parent="." node_paths=PackedStringArray("ship")]
+script = ExtResource("3_gfkql")
+ship = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HoverArea"]
+shape = SubResource("CircleShape2D_b20f4")
+
+[node name="WaypointManager" parent="." node_paths=PackedStringArray("ship") instance=ExtResource("4_ayqqx")]
+ship = NodePath("..")
+
+[node name="ShipMover" parent="." node_paths=PackedStringArray("ship", "waypoint_manager") instance=ExtResource("5_px0gm")]
+ship = NodePath("..")
+waypoint_manager = NodePath("../WaypointManager")
+thrust_curve = SubResource("CurveTexture_txejx")
+
+[node name="ComponentManager" parent="." instance=ExtResource("6_m0d6l")]
+
+[node name="ShipComponent2" parent="ComponentManager" instance=ExtResource("10_kj2t3")]
+position = Vector2(37, 0)
+
+[node name="ShipComponent" parent="ComponentManager" instance=ExtResource("10_kj2t3")]
+position = Vector2(-37, 0)
+
+[node name="FlickerDrive" parent="." node_paths=PackedStringArray("shipmover") instance=ExtResource("6_es0s5")]
+position = Vector2(-43, 0)
+shipmover = NodePath("../ShipMover")
+
+[node name="RcsFx" parent="." node_paths=PackedStringArray("ship_mover", "clockwise", "countercl") instance=ExtResource("11_m0d6l")]
+ship_mover = NodePath("../ShipMover")
+clockwise = [NodePath("fl"), NodePath("br")]
+countercl = [NodePath("bl"), NodePath("fr")]
+
+[node name="bl" type="AnimatedSprite2D" parent="RcsFx"]
+visible = false
+position = Vector2(-29, -70)
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_kj2t3")
+autoplay = "default"
+
+[node name="fl" type="AnimatedSprite2D" parent="RcsFx"]
+visible = false
+position = Vector2(36, -53)
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_kj2t3")
+autoplay = "default"
+
+[node name="br" type="AnimatedSprite2D" parent="RcsFx"]
+visible = false
+position = Vector2(-24, 57)
+rotation = 3.14159
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_kj2t3")
+autoplay = "default"
+
+[node name="fr" type="AnimatedSprite2D" parent="RcsFx"]
+visible = false
+position = Vector2(40, 52)
+rotation = 3.14159
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_kj2t3")
+autoplay = "default"
+
+[node name="ShipHitbox" parent="." instance=ExtResource("16_pjxee")]
+position = Vector2(103, 0)
+damage = 50
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShipHitbox"]
+shape = SubResource("CircleShape2D_xs52s")
+
+[node name="FireControlManager" parent="." node_paths=PackedStringArray("sensors", "weapons") instance=ExtResource("17_6fnym")]
+sensors = [NodePath("Sensor")]
+weapons = [NodePath("Weapon")]
+
+[node name="Weapon" parent="FireControlManager" instance=ExtResource("17_pjxee")]
+
+[node name="Sensor" parent="FireControlManager" instance=ExtResource("19_2hj83")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireControlManager/Sensor"]
+shape = SubResource("CircleShape2D_yrxkm")
+
+[node name="SensorHurtbox" parent="." node_paths=PackedStringArray("ship") instance=ExtResource("19_6fnym")]
+ship = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SensorHurtbox"]
+shape = SubResource("CircleShape2D_2hj83")
+
+[connection signal="area_entered" from="HoverArea" to="HoverArea" method="_on_area_entered"]
+[connection signal="area_exited" from="HoverArea" to="HoverArea" method="_on_area_exited"]
+[connection signal="mouse_entered" from="HoverArea" to="HoverArea" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="HoverArea" to="HoverArea" method="_on_mouse_exited"]

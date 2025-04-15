@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://du17wo1yxisf5"]
+
+[ext_resource type="PackedScene" uid="uid://40155jf6e60d" path="res://battle/ship/weapons/weapon.tscn" id="1_ncgma"]
+[ext_resource type="Script" uid="uid://b2ucyhuemiqll" path="res://battle/ship/weapons/weapons/laser_weapon.gd" id="2_l0qwk"]
+[ext_resource type="PackedScene" uid="uid://doq5w3760bxr3" path="res://_fx/laser_fx.tscn" id="3_ep323"]
+
+[node name="Weapon" instance=ExtResource("1_ncgma")]
+script = ExtResource("2_l0qwk")
+damage = 5.0
+
+[node name="fire_timer" parent="." index="0"]
+wait_time = 2.0
+
+[node name="BeamTimer" type="Timer" parent="." index="3"]
+wait_time = 0.5
+one_shot = true
+
+[node name="LaserFx" parent="." index="4" node_paths=PackedStringArray("laser_weapon") instance=ExtResource("3_ep323")]
+laser_weapon = NodePath("..")
+
+[connection signal="timeout" from="BeamTimer" to="." method="_on_beam_timer_timeout"]

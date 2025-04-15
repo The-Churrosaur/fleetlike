@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://bainibj58svww"]
+
+[ext_resource type="Script" uid="uid://dh4pq2s1wxh7v" path="res://_fx/damage_smoke.gd" id="1_j8hwt"]
+[ext_resource type="Texture2D" uid="uid://bn5m4emn00njs" path="res://_assets/kyle/dust.png" id="1_msvk7"]
+[ext_resource type="Texture2D" uid="uid://1oimbdegdj8a" path="res://_assets/kyle/kyleship.png" id="2_j8hwt"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_msvk7"]
+particle_flag_disable_z = true
+angle_min = 1.07288e-05
+angle_max = 180.0
+spread = 180.0
+initial_velocity_min = 5.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="Curve" id="Curve_j8hwt"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_kn44r"]
+curve = SubResource("Curve_j8hwt")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j8hwt"]
+particle_flag_disable_z = true
+angle_min = 1.07288e-05
+angle_max = 360.0
+spread = 180.0
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.2
+scale_curve = SubResource("CurveTexture_kn44r")
+
+[node name="DamageSmoke" type="Node2D"]
+script = ExtResource("1_j8hwt")
+
+[node name="cloud" type="GPUParticles2D" parent="."]
+visible = false
+texture = ExtResource("1_msvk7")
+process_material = SubResource("ParticleProcessMaterial_msvk7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_j8hwt")
+
+[node name="puff" type="GPUParticles2D" parent="."]
+emitting = false
+texture = ExtResource("1_msvk7")
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_j8hwt")

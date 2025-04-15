@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://coqqu0wbgy5gy"]
+[gd_scene load_steps=2 format=3 uid="uid://coqqu0wbgy5gy"]
+
+[ext_resource type="Script" uid="uid://bmlf4u70ow32d" path="res://battle/ship/damage/ship_health.gd" id="1_083dc"]
 
 [node name="ShipHealth" type="Node"]
+script = ExtResource("1_083dc")

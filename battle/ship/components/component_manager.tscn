@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkcwtctqpfays"]
+
+[ext_resource type="Script" uid="uid://dfcgstskvxle5" path="res://battle/ship/components/component_manager.gd" id="1_dsx0k"]
+
+[node name="ComponentManager" type="Node2D"]
+script = ExtResource("1_dsx0k")

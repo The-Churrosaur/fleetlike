@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxwreco3xd20u"]
+
+[ext_resource type="Texture2D" uid="uid://tm4q2xjx15ws" path="res://_assets/ui_green/progress_bar_outline321.png" id="1_kbudm"]
+[ext_resource type="Texture2D" uid="uid://dxekxfbvvo2yg" path="res://_assets/ui_green/progress_bar321.png" id="2_w1jcb"]
+[ext_resource type="Script" uid="uid://daebk2xnmw3h2" path="res://battle/ui/selected_ship/component/component_healthbar.gd" id="3_qk5ot"]
+
+[node name="ComponentHealthbar" type="TextureProgressBar"]
+offset_right = 64.0
+offset_bottom = 32.0
+value = 90.0
+texture_under = ExtResource("1_kbudm")
+texture_progress = ExtResource("2_w1jcb")
+script = ExtResource("3_qk5ot")

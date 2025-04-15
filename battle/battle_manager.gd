@@ -16,7 +16,12 @@ func _ready() -> void:
 
 func load_fleet(fleet_data : FleetData):
 	
+	print("bm fleet loading")
+	
 	var fleet = FLEET_MANAGER.instantiate()
 	add_child(fleet)
+	
+	print(get_children())
+	
 	fleets.append(fleet)
 	fleet.init(fleet_data, self)

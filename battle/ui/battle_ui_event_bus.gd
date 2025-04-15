@@ -1,5 +1,8 @@
 extends Node
 
+signal ship_spawned(ship : Ship)
+signal ship_died(ship : Ship)
+
 signal ship_hovered(ship : Ship)
 signal ship_unhovered(ship : Ship)
 

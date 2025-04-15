@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3oqkpie3j7tw"]
+
+[ext_resource type="Script" uid="uid://c22f06g2cq2qk" path="res://battle/ui/selected_ship/sensor_radius_draw.gd" id="1_kcvxs"]
+
+[node name="SensorRadiusDraw" type="Node2D"]
+script = ExtResource("1_kcvxs")

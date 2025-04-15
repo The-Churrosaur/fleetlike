@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsl1g3wcavwqp"]
+
+[ext_resource type="Script" uid="uid://conbklulwc6g6" path="res://battle/ui/all_ships/all_ship_ui_manager.gd" id="1_bn0uj"]
+
+[node name="AllShipUIManager" type="Node2D"]
+script = ExtResource("1_bn0uj")

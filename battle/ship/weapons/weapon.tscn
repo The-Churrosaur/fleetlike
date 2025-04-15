@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://40155jf6e60d"]
+
+[ext_resource type="Script" uid="uid://bnx1pp6ucvcy1" path="res://battle/ship/weapons/weapon.gd" id="1_yom82"]
+
+[node name="Weapon" type="Node2D"]
+script = ExtResource("1_yom82")
+
+[node name="fire_timer" type="Timer" parent="."]
+
+[node name="aim_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Muzzle" type="Marker2D" parent="."]
+
+[connection signal="timeout" from="fire_timer" to="." method="_on_fire_timer_timeout"]

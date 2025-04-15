@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1rbsmd4fn7bt"]
+
+[ext_resource type="Script" uid="uid://bfuighfvkf01x" path="res://battle/ship/ship_ai.gd" id="1_kkex2"]
+
+[node name="ShipAI" type="Node2D"]
+script = ExtResource("1_kkex2")
+
+[node name="DecisionTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="DecisionTimer" to="." method="_on_decision_timer_timeout"]

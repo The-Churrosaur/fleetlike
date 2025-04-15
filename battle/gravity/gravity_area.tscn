@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://w825eydtu638"]
+
+[ext_resource type="Script" uid="uid://dk4un13egm3co" path="res://battle/gravity/gravity_area.gd" id="1_rswt0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vyn57"]
+radius = 200.0
+
+[node name="GravityArea" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
+gravity_space_override = 1
+gravity_point = true
+script = ExtResource("1_rswt0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vyn57")

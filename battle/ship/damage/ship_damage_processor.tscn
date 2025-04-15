@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://jffsw2v31wju"]
+
+[ext_resource type="Script" uid="uid://bredrv15oyu7k" path="res://battle/ship/damage/ship_damage_processor.gd" id="1_n36wv"]
+
+[node name="ShipDamageProcessor" type="Node2D"]
+script = ExtResource("1_n36wv")

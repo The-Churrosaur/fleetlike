@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4vdhj0d8j3vu"]
+[gd_scene load_steps=6 format=3 uid="uid://b4vdhj0d8j3vu"]
 
 [ext_resource type="Script" uid="uid://c3ohhx2orqkhu" path="res://battle/ui/battle_ui_canvas.gd" id="1_lswa1"]
 [ext_resource type="PackedScene" uid="uid://c0k2eppyt36hg" path="res://battle/ui/selection/area_select_line.tscn" id="2_uhqy3"]
 [ext_resource type="PackedScene" uid="uid://c43gxo5koysxx" path="res://battle/ui/selection/hover_sprite_manager.tscn" id="3_04aly"]
-[ext_resource type="PackedScene" uid="uid://yp11fke6xms5" path="res://battle/ui/ship/selected_ship_ui_manager.tscn" id="4_72tqc"]
+[ext_resource type="PackedScene" uid="uid://yp11fke6xms5" path="res://battle/ui/selected_ship/selected_ship_ui_manager.tscn" id="4_72tqc"]
+[ext_resource type="PackedScene" uid="uid://dsl1g3wcavwqp" path="res://battle/ui/all_ships/all_ship_ui_manager.tscn" id="5_rh66m"]
 
 [node name="BattleUICanvas" type="CanvasLayer"]
 script = ExtResource("1_lswa1")
@@ -15,3 +16,5 @@ default_color = Color(0, 1, 0, 1)
 [node name="HoverSpriteManager" parent="." instance=ExtResource("3_04aly")]
 
 [node name="SelectedShipUIManager" parent="." instance=ExtResource("4_72tqc")]
+
+[node name="AllShipUIManager" parent="." instance=ExtResource("5_rh66m")]

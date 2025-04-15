@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://c2yd5hjvridcs"]
+
+[ext_resource type="Script" uid="uid://cf4vnti5c3lls" path="res://battle/ship/components/ship_component.gd" id="1_pyxab"]
+[ext_resource type="PackedScene" uid="uid://cvrk67delgddm" path="res://battle/ship/damage/physical/ship_hurtbox.tscn" id="2_ocjkg"]
+[ext_resource type="PackedScene" uid="uid://coqqu0wbgy5gy" path="res://battle/ship/damage/ship_health.tscn" id="3_0etcx"]
+[ext_resource type="PackedScene" uid="uid://cxwreco3xd20u" path="res://battle/ui/selected_ship/component/component_healthbar.tscn" id="4_0ku8s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0ku8s"]
+
+[node name="ShipComponent" type="Node2D"]
+script = ExtResource("1_pyxab")
+
+[node name="ShipHurtbox" parent="." node_paths=PackedStringArray("health") instance=ExtResource("2_ocjkg")]
+health = NodePath("../ShipHealth")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShipHurtbox"]
+shape = SubResource("CircleShape2D_0ku8s")
+
+[node name="ShipHealth" parent="." instance=ExtResource("3_0etcx")]
+
+[node name="ComponentHealthbar" parent="." node_paths=PackedStringArray("health") instance=ExtResource("4_0ku8s")]
+visible = false
+health = NodePath("../ShipHealth")

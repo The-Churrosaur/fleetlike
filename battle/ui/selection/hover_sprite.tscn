@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cyd0xw416ju80"]
 
-[ext_resource type="Texture2D" uid="uid://b71adm0p2c5hg" path="res://_assets/green_select1.png" id="1_48qr5"]
+[ext_resource type="Texture2D" uid="uid://b71adm0p2c5hg" path="res://_assets/ui_green/green_select1.png" id="1_48qr5"]
 
 [node name="HoverSprite" type="Node2D"]
 

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvrk67delgddm"]
+
+[ext_resource type="Script" uid="uid://baf1rqt4dhiyk" path="res://battle/ship/damage/physical/ship_hurtbox.gd" id="1_eyknb"]
+
+[node name="ShipHurtbox" type="Area2D"]
+collision_layer = 32
+collision_mask = 0
+script = ExtResource("1_eyknb")

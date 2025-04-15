@@ -15,10 +15,16 @@ const BATTLE_MANAGER = preload("res://battle/battle_manager.tscn")
 
 func _ready() -> void:
 	
+	print("gamemanager ready")
+	
 	var battle = BATTLE_MANAGER.instantiate()
+	
+	print("battle manager instantiated")
 	add_child(battle)
 	
 	battle.load_fleet(player_fleet)
 	battle.load_fleet(enemy_fleet)
 	
 	GameGlobals.current_level = battle
+	
+	print("gamemanager finished")

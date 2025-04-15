@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://jqm3f5keb4cb"]
+
+[ext_resource type="PackedScene" uid="uid://me67jcpanbom" path="res://battle/ship/damage/physical/ship_hitbox.tscn" id="1_g0m3i"]
+[ext_resource type="Script" uid="uid://cjmu6koyt8jun" path="res://battle/ship/weapons/bullets/bullet_mover.gd" id="2_rg5ye"]
+[ext_resource type="Texture2D" uid="uid://dcyoljmcooldo" path="res://_assets/kyle/kylebold.png" id="3_jg15y"]
+[ext_resource type="Texture2D" uid="uid://boa6fwrackrk5" path="res://_assets/kyle/kylebold2png.png" id="4_ild1v"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lvyb5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_jg15y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ild1v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nv5ly"]
+radius = 5.0
+height = 50.0
+
+[node name="Bullet" instance=ExtResource("1_g0m3i")]
+
+[node name="BulletMover" type="Node2D" parent="." index="0"]
+script = ExtResource("2_rg5ye")
+
+[node name="Testbolt" type="AnimatedSprite2D" parent="." index="1"]
+rotation = 1.55939
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_lvyb5")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_nv5ly")

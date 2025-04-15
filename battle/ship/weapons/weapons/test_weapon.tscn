@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://jugb84kvyeh0"]
+
+[ext_resource type="Script" uid="uid://do2x0gg3yopfr" path="res://battle/ship/weapons/weapons/test_weapon.gd" id="1_ppdvu"]
+[ext_resource type="Texture2D" uid="uid://6osj1td72qmh" path="res://_assets/icon.svg" id="2_g234w"]
+
+[node name="Weapon" type="Node2D"]
+script = ExtResource("1_ppdvu")
+
+[node name="TurretTarget" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_g234w")
+
+[node name="Muzzle" type="Marker2D" parent="."]
+position = Vector2(72, 0)

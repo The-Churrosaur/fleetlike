@@ -8,7 +8,7 @@ extends Controller
 @export var battle_manager : BattleManager
 
 @onready var ship_selection_manager: ShipSelectionManager = $ShipSelectionManager
-
+const GRAVITY_AREA = preload("res://battle/gravity/gravity_area.tscn")
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -28,7 +28,15 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	elif event.is_action_pressed("ui_alt_click"):
 		_set_ship_waypoint()
-
+	
+	elif event.is_action_pressed("ui_accept"):
+		if Engine.time_scale == 1.0: Engine.time_scale = 0.05
+		else: Engine.time_scale = 1.0
+		#var grav = GRAVITY_AREA.instantiate()
+		#add_child(grav)
+		#grav.global_position = get_global_mouse_position()
+		
+		
 
 
 # -- ship moving

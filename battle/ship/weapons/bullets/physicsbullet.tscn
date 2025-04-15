@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://be4rl3iwxb24i"]
+
+[ext_resource type="Script" uid="uid://cdbaf5u872uhc" path="res://battle/ship/weapons/bullets/physicsbullet.gd" id="1_fw2lb"]
+[ext_resource type="PackedScene" uid="uid://me67jcpanbom" path="res://battle/ship/damage/physical/ship_hitbox.tscn" id="2_u3i2f"]
+[ext_resource type="Texture2D" uid="uid://6osj1td72qmh" path="res://_assets/icon.svg" id="3_u3i2f"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_u3i2f"]
+bounce = 0.87
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fw2lb"]
+
+[node name="Physicsbullet" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_u3i2f")
+linear_damp_mode = 1
+angular_damp_mode = 1
+script = ExtResource("1_fw2lb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fw2lb")
+
+[node name="ShipHitbox" parent="." instance=ExtResource("2_u3i2f")]
+hit_chance = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShipHitbox"]
+shape = SubResource("CircleShape2D_fw2lb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_u3i2f")

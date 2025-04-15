@@ -5,7 +5,10 @@
 
 [node name="Map" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="bg" type="CanvasLayer" parent="."]
+layer = -2
+
+[node name="Sprite2D" type="Sprite2D" parent="bg"]
 position = Vector2(474, 302)
 texture = ExtResource("1_qhsoi")
 script = ExtResource("2_3x5dn")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b6dyt6knexraj"]
 
-[ext_resource type="Texture2D" uid="uid://dcyoljmcooldo" path="res://_assets/kylebold.png" id="1_a5753"]
-[ext_resource type="Texture2D" uid="uid://boa6fwrackrk5" path="res://_assets/kylebold2png.png" id="2_uoca0"]
+[ext_resource type="Texture2D" uid="uid://dcyoljmcooldo" path="res://_assets/kyle/kylebold.png" id="1_a5753"]
+[ext_resource type="Texture2D" uid="uid://boa6fwrackrk5" path="res://_assets/kyle/kylebold2png.png" id="2_uoca0"]
 [ext_resource type="Script" uid="uid://d4jkkrvsxwt2t" path="res://_fx/testbolt.gd" id="3_uoca0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ou36j"]

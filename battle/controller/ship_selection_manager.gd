@@ -13,6 +13,7 @@ var selected_ships = {} # ship -> selection sprite
 func _ready() -> void:
 	BattleUIEventBus.ship_hovered.connect(_on_ship_hovered)
 	BattleUIEventBus.ship_unhovered.connect(_on_ship_unhovered)
+	BattleUIEventBus.ship_died.connect(_on_ship_died)
 
 
 func _on_ship_hovered(ship):
@@ -21,6 +22,11 @@ func _on_ship_hovered(ship):
 
 func _on_ship_unhovered(ship):
 	if hovered_ships.has(ship): hovered_ships.erase(ship)
+
+
+func _on_ship_died(ship):
+	if hovered_ships.has(ship): _on_ship_unhovered(ship)
+	if selected_ships.has(ship): _deselect_ship(ship)
 
 
 func select_ships():
