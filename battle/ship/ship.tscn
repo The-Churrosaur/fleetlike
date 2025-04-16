@@ -160,7 +160,7 @@ autoplay = "default"
 
 [node name="FireControlManager" parent="." node_paths=PackedStringArray("sensors", "weapons") instance=ExtResource("17_6fnym")]
 sensors = [NodePath("Sensor")]
-weapons = [NodePath(""), NodePath("")]
+weapons = [null, null]
 
 [node name="Sensor" parent="FireControlManager" instance=ExtResource("19_2hj83")]
 

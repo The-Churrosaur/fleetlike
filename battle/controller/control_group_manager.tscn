@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://28epksvf7ilx"]
+
+[ext_resource type="Script" uid="uid://chiy6ft660t0u" path="res://battle/controller/control_group_manager.gd" id="1_lhuwc"]
+
+[node name="ControlGroupManager" type="Node2D"]
+script = ExtResource("1_lhuwc")

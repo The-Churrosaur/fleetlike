@@ -14,7 +14,7 @@ func _physics_process(delta: float) -> void:
 	bullet.global_position += bullet.global_transform.x * velocity * delta
 	
 	if bullet.target:
-		print("bullet has target lerping")
+		#print("bullet has target lerping")
 		target_looker.look_at(bullet.target.global_position)
 		bullet.global_rotation = lerp_angle(bullet.global_rotation, target_looker.global_rotation, 1.0 * delta)
 	

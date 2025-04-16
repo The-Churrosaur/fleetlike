@@ -5,8 +5,8 @@ extends Node2D
 
 @onready var selection_area: ShipSelectionArea = $SelectionArea
 
-var hovered_ships = {} # ship -> hover sprite
-var selected_ships = {} # ship -> selection sprite
+var hovered_ships = {} # ship -> bool
+var selected_ships = {} # ship -> bool
 
 
 
@@ -40,6 +40,11 @@ func start_area_selection():
 
 func end_area_selection():
 	selection_area.end_selection()
+
+
+func select_given_ships(ships : Array):
+	for ship : Ship in selected_ships.keys(): _deselect_ship(ship)
+	for ship in ships: _select_ship(ship)
 
 
 func _select_ship(ship : Ship):
