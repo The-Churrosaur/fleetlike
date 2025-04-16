@@ -19,10 +19,10 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_ship_selected(ship):
-	var sprite = SELECTED_SHIP_UI.instantiate()
-	add_child(sprite)
-	sprite.init(ship)
-	ships[ship] = sprite
+	var ui = SELECTED_SHIP_UI.instantiate()
+	add_child(ui)
+	ui.init(ship)
+	ships[ship] = ui
 
 
 func _on_ship_deselected(ship):

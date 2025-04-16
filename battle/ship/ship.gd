@@ -10,6 +10,7 @@ signal ship_died(ship)
 @onready var ship_damage_processor: ShipDamageProcessor = $ShipDamageProcessor
 @onready var ship_health: ShipHealth = $ShipHealth
 @onready var fire_control_manager: FireControlManager = $FireControlManager
+@onready var ship_ability_manager: ShipAbilityManager = $ShipAbilityManager
 
 var player_ship = false
 var faction : CampaignGlobals.FACTIONS

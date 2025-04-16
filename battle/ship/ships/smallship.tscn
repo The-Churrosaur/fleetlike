@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cicmb5p8of126"]
+[gd_scene load_steps=5 format=3 uid="uid://cicmb5p8of126"]
 
 [ext_resource type="PackedScene" uid="uid://s4yeld6eym2i" path="res://battle/ship/ship.tscn" id="1_lk2dw"]
 [ext_resource type="PackedScene" uid="uid://xuffogoyvqeb" path="res://battle/ship/weapons/weapons/bullet_weapon.tscn" id="2_5fpf3"]
+[ext_resource type="PackedScene" uid="uid://umw0vxu3h5pd" path="res://battle/ship/abilities/abilities/boost_ability.tscn" id="3_b3eqy"]
+[ext_resource type="PackedScene" uid="uid://ij4ejcno46ve" path="res://battle/ship/abilities/abilities/rof_ability.tscn" id="4_8whre"]
 
 [node name="Ship" instance=ExtResource("1_lk2dw")]
 
@@ -9,3 +11,17 @@
 weapons = [NodePath("Weapon")]
 
 [node name="Weapon" parent="FireControlManager" index="1" instance=ExtResource("2_5fpf3")]
+
+[node name="ShipAbilityManager" parent="." index="14" node_paths=PackedStringArray("abilities")]
+abilities = [NodePath("BoostAbility"), NodePath("BoostAbility2"), NodePath("ROFAbility")]
+
+[node name="BoostAbility" parent="ShipAbilityManager" index="0" node_paths=PackedStringArray("ship_mover") instance=ExtResource("3_b3eqy")]
+ship_mover = NodePath("../../ShipMover")
+
+[node name="BoostAbility2" parent="ShipAbilityManager" index="1" node_paths=PackedStringArray("ship_mover", "ship") instance=ExtResource("3_b3eqy")]
+ship_mover = NodePath("../../ShipMover")
+ship = NodePath("../..")
+
+[node name="ROFAbility" parent="ShipAbilityManager" index="2" node_paths=PackedStringArray("fcm", "ship") instance=ExtResource("4_8whre")]
+fcm = NodePath("../../FireControlManager")
+ship = NodePath("../..")

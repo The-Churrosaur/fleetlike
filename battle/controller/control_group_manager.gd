@@ -14,25 +14,25 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_ctrl_1"):
 		groups[1] = selection_manager.selected_ships.keys()
 	
-	elif event.is_action_pressed("ui_ctrl_2"):
+	if event.is_action_pressed("ui_ctrl_2", false, true):
 		groups[2] = selection_manager.selected_ships.keys()
 	
-	elif event.is_action_pressed("ui_ctrl_3"):
+	if event.is_action_pressed("ui_ctrl_3", false, true):
 		groups[3] = selection_manager.selected_ships.keys()
 	
-	elif event.is_action_pressed("ui_ctrl_4"):
+	if event.is_action_pressed("ui_ctrl_4", false, true):
 		groups[4] = selection_manager.selected_ships.keys()
 	
 	# group selection
 	
-	elif event.is_action_pressed("ui_1"):
-		selection_manager.select_given_ships(groups[1])
+	if event.is_action_pressed("ui_1", false, true):
+		if groups.has(1): selection_manager.select_given_ships(groups[1])
 	
-	elif event.is_action_pressed("ui_2"):
-		selection_manager.select_given_ships(groups[2])
+	if event.is_action_pressed("ui_2", false, true):
+		if groups.has(2): selection_manager.select_given_ships(groups[2])
 	
-	elif event.is_action_pressed("ui_3"):
-		selection_manager.select_given_ships(groups[3])
+	if event.is_action_pressed("ui_3", false, true):
+		if groups.has(3): selection_manager.select_given_ships(groups[3])
 	
-	elif event.is_action_pressed("ui_4"):
-		selection_manager.select_given_ships(groups[4])
+	if event.is_action_pressed("ui_4", false, true):
+		if groups.has(4): selection_manager.select_given_ships(groups[4])

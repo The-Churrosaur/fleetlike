@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ij4ejcno46ve"]
+
+[ext_resource type="PackedScene" uid="uid://c2cobqek6i253" path="res://battle/ship/abilities/ship_ability.tscn" id="1_fm3b1"]
+[ext_resource type="Script" uid="uid://b1q3ip0eh6t13" path="res://battle/ship/abilities/abilities/rof_ability.gd" id="2_thd1o"]
+
+[node name="ROFAbility" instance=ExtResource("1_fm3b1")]
+script = ExtResource("2_thd1o")
+activation_time = 5.0
+ability_name = "ROF"

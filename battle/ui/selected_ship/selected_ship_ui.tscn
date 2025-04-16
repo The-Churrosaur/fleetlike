@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://di3hdauge7355"]
+[gd_scene load_steps=6 format=3 uid="uid://di3hdauge7355"]
 
 [ext_resource type="Script" uid="uid://p3dkht3mu3v4" path="res://battle/ui/selected_ship/selected_ship_ui.gd" id="1_vewgr"]
 [ext_resource type="Texture2D" uid="uid://bk803hmjyl787" path="res://_assets/ui_green/square481.png" id="1_yscky"]
 [ext_resource type="PackedScene" uid="uid://0nuprobqolmm" path="res://battle/ui/selected_ship/waypoint_draw.tscn" id="2_ut3gy"]
 [ext_resource type="PackedScene" uid="uid://b3oqkpie3j7tw" path="res://battle/ui/selected_ship/sensor_radius_draw.tscn" id="4_33cls"]
+[ext_resource type="PackedScene" uid="uid://ch7rdee0r8f5c" path="res://battle/ui/selected_ship/ability/abilities_container.tscn" id="5_8kwcf"]
 
 [node name="SelectedShipUI" type="Node2D"]
 script = ExtResource("1_vewgr")
@@ -14,3 +15,17 @@ texture = ExtResource("1_yscky")
 [node name="WaypointDraw" parent="." instance=ExtResource("2_ut3gy")]
 
 [node name="SensorRadiusDraw" parent="." instance=ExtResource("4_33cls")]
+
+[node name="Control" type="CenterContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 53.0
+offset_right = 100.0
+offset_bottom = 112.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+
+[node name="AbilitiesContainer" parent="Control" instance=ExtResource("5_8kwcf")]
+layout_mode = 2

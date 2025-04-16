@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://ch7rdee0r8f5c"]
+
+[ext_resource type="Script" uid="uid://j8jtfi7o2bjv" path="res://battle/ui/selected_ship/ability/abilities_container.gd" id="1_3jbly"]
+
+[node name="AbilitiesContainer" type="MarginContainer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 59.0
+grow_horizontal = 2
+script = ExtResource("1_3jbly")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 2

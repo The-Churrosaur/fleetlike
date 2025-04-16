@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://ya75rra0uegs"]
+
+[ext_resource type="Script" uid="uid://dxjban1e15nf3" path="res://battle/ui/selected_ship/ability/ability_ui.gd" id="1_7b38f"]
+[ext_resource type="Texture2D" uid="uid://b4kvxqnpxlije" path="res://_assets/ui_green/progress_bar_outline1.png" id="2_xr0oe"]
+[ext_resource type="Texture2D" uid="uid://c2xarctv0ap5q" path="res://_assets/ui_green/progress_bar1.png" id="3_o8kh7"]
+
+[node name="AbilityUI" type="MarginContainer" node_paths=PackedStringArray("progress_bar", "label")]
+offset_right = 64.0
+offset_bottom = 59.0
+script = ExtResource("1_7b38f")
+progress_bar = NodePath("CenterContainer/TextureProgressBar")
+label = NodePath("CenterContainer/Label")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "test"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CenterContainer"]
+layout_mode = 2
+value = 40.0
+texture_under = ExtResource("2_xr0oe")
+texture_progress = ExtResource("3_o8kh7")
