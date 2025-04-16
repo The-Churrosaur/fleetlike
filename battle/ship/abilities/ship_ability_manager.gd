@@ -9,3 +9,9 @@ extends Node2D
 
 func activate_ability(index):
 	if abilities.size() > index: abilities[index].activate()
+
+
+func add_ability(ability : ShipAbility):
+	add_child(ability)
+	abilities.append(ability)
+	ability.ship = ship

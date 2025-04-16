@@ -41,3 +41,8 @@ func assign_targets_and_fire():
 	
 	if !contacts.is_empty(): fire_at_target(contacts[randi_range(0, contacts.size() - 1)]) # TODO
 	else: cease_fire()
+
+
+func add_weapon(weapon : Weapon):
+	add_child(weapon)
+	weapons.append(weapon)

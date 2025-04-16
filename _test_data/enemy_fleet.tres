@@ -11,6 +11,8 @@ ship_scene = ExtResource("3_6rixd")
 player_ship = false
 faction = 2
 spawn_position = Vector2(500, 500)
+weapons = Dictionary[int, PackedScene]({})
+abilities = Dictionary[int, PackedScene]({})
 metadata/_custom_type_script = "uid://qaixdu0mhtc2"
 
 [sub_resource type="Resource" id="Resource_cjjqd"]
@@ -19,6 +21,8 @@ ship_scene = ExtResource("4_uvvwt")
 player_ship = false
 faction = 2
 spawn_position = Vector2(1000, 1000)
+weapons = Dictionary[int, PackedScene]({})
+abilities = Dictionary[int, PackedScene]({})
 metadata/_custom_type_script = "uid://qaixdu0mhtc2"
 
 [resource]

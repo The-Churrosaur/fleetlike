@@ -2,7 +2,6 @@
 extends ShipAbility
 
 
-@export var ship_mover : ShipMover
 @export var duration = 5.0
 
 @onready var gpu_particles_2d: GPUParticles2D = $GPUParticles2D
@@ -10,6 +9,8 @@ extends ShipAbility
 
 func _activate():
 	super()
+	
+	var ship_mover = ship.ship_mover
 	
 	ship_mover.thrust_force *= 2
 	gpu_particles_2d.emitting = true

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlcser1ol38j8"]
+
+[ext_resource type="PackedScene" uid="uid://c2cobqek6i253" path="res://battle/ship/abilities/ship_ability.tscn" id="1_6wqmv"]
+[ext_resource type="Script" uid="uid://cy57b4puixc5q" path="res://battle/ship/abilities/abilities/tank_ability.gd" id="2_6e72m"]
+
+[node name="TankAbility" instance=ExtResource("1_6wqmv")]
+script = ExtResource("2_6e72m")
+activation_time = 5.0
+ability_name = "Tank"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://s4yeld6eym2i"]
+[gd_scene load_steps=29 format=3 uid="uid://s4yeld6eym2i"]
 
 [ext_resource type="Script" uid="uid://27hy2qdjricv" path="res://battle/ship/ship.gd" id="1_i3cap"]
 [ext_resource type="PackedScene" uid="uid://cvrk67delgddm" path="res://battle/ship/damage/physical/ship_hurtbox.tscn" id="2_danqt"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://coqqu0wbgy5gy" path="res://battle/ship/damage/ship_health.tscn" id="12_txejx"]
 [ext_resource type="Texture2D" uid="uid://bbniqdm4wusop" path="res://_assets/kyle/kyle_rcs2.png" id="13_4fpin"]
 [ext_resource type="PackedScene" uid="uid://ljrsdut67m7b" path="res://battle/ship/weapons/fire_control_manager.tscn" id="17_6fnym"]
+[ext_resource type="PackedScene" uid="uid://d02m206iv0864" path="res://battle/ship/weapons/weapon_positioner.tscn" id="18_yrxkm"]
 [ext_resource type="PackedScene" uid="uid://dgwdrxfvdphwe" path="res://battle/ship/detection/sensor.tscn" id="19_2hj83"]
 [ext_resource type="PackedScene" uid="uid://cgirvqoldups6" path="res://battle/ship/detection/sensor_hurtbox.tscn" id="19_6fnym"]
 [ext_resource type="PackedScene" uid="uid://bainibj58svww" path="res://_fx/damage_smoke.tscn" id="20_2hj83"]
@@ -95,9 +96,9 @@ rotation = 1.5708
 scale = Vector2(0.5, 0.5)
 health = NodePath("../ShipHealth")
 
-[node name="ShipHurtbox" parent="." node_paths=PackedStringArray("ship", "health") instance=ExtResource("2_danqt")]
+[node name="ShipHurtbox" parent="." node_paths=PackedStringArray("ship", "damage_processor") instance=ExtResource("2_danqt")]
 ship = NodePath("..")
-health = NodePath("../ShipHealth")
+damage_processor = NodePath("../ShipDamageProcessor")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShipHurtbox"]
 rotation = 1.5708
@@ -167,6 +168,8 @@ weapons = [null, null]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FireControlManager/Sensor"]
 shape = SubResource("CircleShape2D_yrxkm")
+
+[node name="WeaponPositioner" parent="FireControlManager" instance=ExtResource("18_yrxkm")]
 
 [node name="SensorHurtbox" parent="." node_paths=PackedStringArray("ship") instance=ExtResource("19_6fnym")]
 ship = NodePath("..")

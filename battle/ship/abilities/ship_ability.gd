@@ -5,7 +5,7 @@ extends Node2D
 
 @export var ship : Ship
 @export var ability_name = "Default"
-@export var cooldown = 10.0
+@export var cooldown = 20.0
 
 @onready var cooldown_timer: Timer = $CooldownTimer
 

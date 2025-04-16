@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://70jg8mh27mxt"]
+[gd_scene load_steps=7 format=3 uid="uid://70jg8mh27mxt"]
 
 [ext_resource type="PackedScene" uid="uid://s4yeld6eym2i" path="res://battle/ship/ship.tscn" id="1_inpc4"]
 [ext_resource type="Texture2D" uid="uid://c51cs8t4vhjle" path="res://_assets/kyle/kyleship2.png" id="2_j3siw"]
 [ext_resource type="PackedScene" uid="uid://xuffogoyvqeb" path="res://battle/ship/weapons/weapons/bullet_weapon.tscn" id="4_j3siw"]
+[ext_resource type="PackedScene" uid="uid://dlcser1ol38j8" path="res://battle/ship/abilities/abilities/tank_ability.tscn" id="5_uxa4a"]
+[ext_resource type="PackedScene" uid="uid://ij4ejcno46ve" path="res://battle/ship/abilities/abilities/rof_ability.tscn" id="6_6ipb6"]
 [ext_resource type="PackedScene" uid="uid://du17wo1yxisf5" path="res://battle/ship/weapons/weapons/laser_weapon.tscn" id="19_kqxc1"]
 
 [node name="Ship" instance=ExtResource("1_inpc4")]
@@ -49,3 +51,12 @@ position = Vector2(13, 0)
 
 [node name="Weapon3" parent="FireControlManager" index="3" instance=ExtResource("4_j3siw")]
 position = Vector2(-36, 0)
+
+[node name="ShipAbilityManager" parent="." index="15" node_paths=PackedStringArray("abilities")]
+abilities = [NodePath("TankAbility"), NodePath("ROFAbility")]
+
+[node name="TankAbility" parent="ShipAbilityManager" index="0" node_paths=PackedStringArray("ship") instance=ExtResource("5_uxa4a")]
+ship = NodePath("../..")
+
+[node name="ROFAbility" parent="ShipAbilityManager" index="1" node_paths=PackedStringArray("ship") instance=ExtResource("6_6ipb6")]
+ship = NodePath("../..")
