@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://pgkbbaiwuhrh"]
+
+[ext_resource type="PackedScene" uid="uid://s4yeld6eym2i" path="res://battle/ship/ship.tscn" id="1_fkl3g"]
+[ext_resource type="Texture2D" uid="uid://1oimbdegdj8a" path="res://_assets/kyle/kyleship.png" id="2_47iak"]
+[ext_resource type="PackedScene" uid="uid://du17wo1yxisf5" path="res://battle/ship/weapons/weapons/laser_weapon.tscn" id="5_o8w6w"]
+
+[node name="Ship" instance=ExtResource("1_fkl3g")]
+
+[node name="MainSprite" parent="." index="1"]
+position = Vector2(2, 4)
+
+[node name="Sprite2D" type="Sprite2D" parent="MainSprite" index="2"]
+position = Vector2(-0.0013213, -365)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_47iak")
+
+[node name="CollisionShape2D" parent="ShipHurtbox" index="0"]
+position = Vector2(14, 0)
+
+[node name="ShipHealth" parent="." index="5"]
+max_health = 150
+health = 150
+
+[node name="ShipMover" parent="." index="8"]
+rotation_torque = 2500
+thrust_force = 100
+
+[node name="FireControlManager" parent="." index="11" node_paths=PackedStringArray("weapons")]
+weapons = [NodePath("Weapon"), NodePath("Weapon2")]
+
+[node name="Weapon" parent="FireControlManager" index="1" instance=ExtResource("5_o8w6w")]
+
+[node name="Weapon2" parent="FireControlManager" index="2" instance=ExtResource("5_o8w6w")]

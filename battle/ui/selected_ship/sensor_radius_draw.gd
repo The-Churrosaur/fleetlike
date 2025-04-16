@@ -12,7 +12,6 @@ func init(ship):
 	var fcm = ship.fire_control_manager
 	for sensor in fcm.sensors:
 		circles.append(sensor.get_children()[0].shape.radius)
-	print("circles init: ", circles)
 
 func _draw() -> void:
 	for circle in circles:

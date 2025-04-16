@@ -42,8 +42,8 @@ func set_waypoint(waypoint_position : Vector2):
 	
 	current_waypoint = new_waypoint
 	
-	print("NEW WAYPOINT ADDED: ")
-	current_waypoint.print_list()
+	#print("NEW WAYPOINT ADDED: ")
+	#current_waypoint.print_list()
 
 
 ## call to set current waypoint completed

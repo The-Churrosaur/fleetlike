@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://s4yeld6eym2i"]
+[gd_scene load_steps=27 format=3 uid="uid://s4yeld6eym2i"]
 
 [ext_resource type="Script" uid="uid://27hy2qdjricv" path="res://battle/ship/ship.gd" id="1_i3cap"]
 [ext_resource type="PackedScene" uid="uid://cvrk67delgddm" path="res://battle/ship/damage/physical/ship_hurtbox.tscn" id="2_danqt"]
@@ -9,15 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://daxixkwymkrod" path="res://battle/ship/ship_mover.tscn" id="5_px0gm"]
 [ext_resource type="PackedScene" uid="uid://ci4r4pgw8hum8" path="res://_fx/explosion_fx.tscn" id="5_yrxkm"]
 [ext_resource type="PackedScene" uid="uid://7707jp6hme5c" path="res://_fx/flicker_drive.tscn" id="6_es0s5"]
-[ext_resource type="PackedScene" uid="uid://dkcwtctqpfays" path="res://battle/ship/components/component_manager.tscn" id="6_m0d6l"]
 [ext_resource type="Script" uid="uid://bymhfkbipujam" path="res://_fx/shadow_sprite.gd" id="6_njepq"]
-[ext_resource type="PackedScene" uid="uid://c2yd5hjvridcs" path="res://battle/ship/components/ship_component.tscn" id="10_kj2t3"]
 [ext_resource type="PackedScene" uid="uid://chfo20yjsyxsq" path="res://_fx/rcs_fx.tscn" id="11_m0d6l"]
 [ext_resource type="Texture2D" uid="uid://bbn0u35ipmqli" path="res://_assets/kyle/kyle_rcs.png" id="12_danqt"]
 [ext_resource type="PackedScene" uid="uid://coqqu0wbgy5gy" path="res://battle/ship/damage/ship_health.tscn" id="12_txejx"]
 [ext_resource type="Texture2D" uid="uid://bbniqdm4wusop" path="res://_assets/kyle/kyle_rcs2.png" id="13_4fpin"]
 [ext_resource type="PackedScene" uid="uid://ljrsdut67m7b" path="res://battle/ship/weapons/fire_control_manager.tscn" id="17_6fnym"]
-[ext_resource type="PackedScene" uid="uid://du17wo1yxisf5" path="res://battle/ship/weapons/weapons/laser_weapon.tscn" id="18_6fnym"]
 [ext_resource type="PackedScene" uid="uid://dgwdrxfvdphwe" path="res://battle/ship/detection/sensor.tscn" id="19_2hj83"]
 [ext_resource type="PackedScene" uid="uid://cgirvqoldups6" path="res://battle/ship/detection/sensor_hurtbox.tscn" id="19_6fnym"]
 [ext_resource type="PackedScene" uid="uid://bainibj58svww" path="res://_fx/damage_smoke.tscn" id="20_2hj83"]
@@ -25,7 +22,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m0d6l"]
 radius = 16.0
-height = 100.0
+height = 154.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b20f4"]
 radius = 32.0
@@ -67,11 +64,6 @@ script = ExtResource("1_i3cap")
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_m0d6l")
 
-[node name="ExplosionFX" parent="." node_paths=PackedStringArray("health") instance=ExtResource("5_yrxkm")]
-rotation = 1.5708
-scale = Vector2(0.5, 0.5)
-health = NodePath("../ShipHealth")
-
 [node name="MainSprite" type="Sprite2D" parent="."]
 texture_filter = 1
 rotation = 1.5708
@@ -97,7 +89,13 @@ health = NodePath("../../ShipHealth")
 health = NodePath("../ShipHealth")
 ship = NodePath("..")
 
-[node name="ShipHurtbox" parent="." node_paths=PackedStringArray("health") instance=ExtResource("2_danqt")]
+[node name="ExplosionFX" parent="." node_paths=PackedStringArray("health") instance=ExtResource("5_yrxkm")]
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+health = NodePath("../ShipHealth")
+
+[node name="ShipHurtbox" parent="." node_paths=PackedStringArray("ship", "health") instance=ExtResource("2_danqt")]
+ship = NodePath("..")
 health = NodePath("../ShipHealth")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShipHurtbox"]
@@ -120,15 +118,6 @@ ship = NodePath("..")
 ship = NodePath("..")
 waypoint_manager = NodePath("../WaypointManager")
 thrust_curve = SubResource("CurveTexture_txejx")
-
-[node name="ComponentManager" parent="." node_paths=PackedStringArray("components") instance=ExtResource("6_m0d6l")]
-components = [NodePath("ShipComponent2"), NodePath("ShipComponent")]
-
-[node name="ShipComponent2" parent="ComponentManager" instance=ExtResource("10_kj2t3")]
-position = Vector2(37, 0)
-
-[node name="ShipComponent" parent="ComponentManager" instance=ExtResource("10_kj2t3")]
-position = Vector2(-37, 0)
 
 [node name="FlickerDrive" parent="." node_paths=PackedStringArray("shipmover") instance=ExtResource("6_es0s5")]
 position = Vector2(-43, 0)
@@ -171,15 +160,12 @@ autoplay = "default"
 
 [node name="FireControlManager" parent="." node_paths=PackedStringArray("sensors", "weapons") instance=ExtResource("17_6fnym")]
 sensors = [NodePath("Sensor")]
-weapons = [NodePath("Weapon")]
+weapons = [NodePath(""), NodePath("")]
 
 [node name="Sensor" parent="FireControlManager" instance=ExtResource("19_2hj83")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FireControlManager/Sensor"]
 shape = SubResource("CircleShape2D_yrxkm")
-
-[node name="Weapon" parent="FireControlManager" instance=ExtResource("18_6fnym")]
-position = Vector2(12, 0)
 
 [node name="SensorHurtbox" parent="." node_paths=PackedStringArray("ship") instance=ExtResource("19_6fnym")]
 ship = NodePath("..")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ci4r4pgw8hum8"]
+[gd_scene load_steps=17 format=3 uid="uid://ci4r4pgw8hum8"]
 
 [ext_resource type="Script" uid="uid://dw82h083tgt4t" path="res://_fx/explosion_fx.gd" id="1_qoa33"]
 [ext_resource type="Texture2D" uid="uid://bn5m4emn00njs" path="res://_assets/kyle/dust.png" id="2_cnmk0"]
@@ -7,6 +7,15 @@
 [ext_resource type="Texture2D" uid="uid://b4b4bci3l3m53" path="res://_assets/kyle/kylesplosion2.png" id="5_rgh3u"]
 [ext_resource type="Texture2D" uid="uid://c7w163s5gjy7j" path="res://_assets/kyle/kylesplosion3.png" id="6_gw5fw"]
 [ext_resource type="Texture2D" uid="uid://b2agsiceq3xtn" path="res://_assets/kyle/scrap.png" id="7_o5abj"]
+[ext_resource type="Texture2D" uid="uid://hks605oyuef2" path="res://_assets/kyle/lightning.png" id="8_cnmk0"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_11jl2"]
+particle_flag_disable_z = true
+angle_min = 1.07288e-05
+angle_max = 360.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.1
+scale_max = 0.6
 
 [sub_resource type="Curve" id="Curve_f47vw"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.141935, 1), 0.0725655, 0.0725655, 0, 0, Vector2(0.593548, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -66,6 +75,14 @@ alpha_curve = SubResource("CurveTexture_cnmk0")
 
 [node name="ExplosionSmoke" type="Node2D"]
 script = ExtResource("1_qoa33")
+
+[node name="LightningParticles" type="GPUParticles2D" parent="."]
+emitting = false
+texture = ExtResource("8_cnmk0")
+one_shot = true
+explosiveness = 0.42
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_11jl2")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false

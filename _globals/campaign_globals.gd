@@ -11,3 +11,7 @@ var faction_enemies = {
 @export var rear_damage_mult = 2.0
 
 @export var speed_damage_reduction : CurveTexture
+
+
+func enemies(ship1 : Ship, ship2 : Ship):
+	return faction_enemies[ship1.faction].has(ship2.faction)

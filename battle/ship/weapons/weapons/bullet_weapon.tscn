@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://xuffogoyvqeb"]
+
+[ext_resource type="PackedScene" uid="uid://40155jf6e60d" path="res://battle/ship/weapons/weapon.tscn" id="1_v2hwc"]
+[ext_resource type="Script" uid="uid://bnbwgxr16ntb8" path="res://battle/ship/weapons/weapons/bullet_weapon.gd" id="2_8bnyn"]
+
+[node name="Weapon" instance=ExtResource("1_v2hwc")]
+script = ExtResource("2_8bnyn")
+
+[node name="fire_timer" parent="." index="0"]
+wait_time = 4.0

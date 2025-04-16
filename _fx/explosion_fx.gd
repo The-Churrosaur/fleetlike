@@ -6,13 +6,16 @@ extends Node2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var main_sprite: Sprite2D = $"../MainSprite"
 @onready var scrap_particles: GPUParticles2D = $ScrapParticles
+@onready var lightning_particles: GPUParticles2D = $LightningParticles
 
 
 func _ready() -> void:
 	health.health_zero.connect(_on_health_zero_health)
 
-
 func _on_health_zero_health():
+	
+	lightning_particles.restart()
+	await lightning_particles.finished
 	
 	reparent(GameGlobals.current_level)
 	

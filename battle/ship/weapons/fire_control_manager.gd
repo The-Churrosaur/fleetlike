@@ -39,5 +39,5 @@ func assign_targets_and_fire():
 	
 	#print("Assigning contacts: ", contacts)
 	
-	if !contacts.is_empty(): fire_at_target(contacts[0]) # TODO
+	if !contacts.is_empty(): fire_at_target(contacts[randi_range(0, contacts.size() - 1)]) # TODO
 	else: cease_fire()
