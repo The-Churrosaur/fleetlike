@@ -13,6 +13,7 @@ faction = 2
 spawn_position = Vector2(500, 500)
 weapons = Dictionary[int, PackedScene]({})
 abilities = Dictionary[int, PackedScene]({})
+upgrades = Dictionary[int, PackedScene]({})
 metadata/_custom_type_script = "uid://qaixdu0mhtc2"
 
 [sub_resource type="Resource" id="Resource_cjjqd"]
@@ -23,6 +24,7 @@ faction = 2
 spawn_position = Vector2(1000, 1000)
 weapons = Dictionary[int, PackedScene]({})
 abilities = Dictionary[int, PackedScene]({})
+upgrades = Dictionary[int, PackedScene]({})
 metadata/_custom_type_script = "uid://qaixdu0mhtc2"
 
 [resource]

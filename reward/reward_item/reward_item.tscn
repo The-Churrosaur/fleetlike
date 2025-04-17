@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://dd33qhw42u7f"]
+[gd_scene load_steps=2 format=3 uid="uid://d32hpmvf4jqj3"]
 
-[ext_resource type="Script" uid="uid://cy50t6lkc55ia" path="res://reward/reward_item/reward_item.gd" id="1_785gr"]
+[sub_resource type="GDScript" id="GDScript_k7bxi"]
+script/source = "
+class_name RewardItem
+extends Node2D
+
+var data : RewardItemData
+
+func load_item(item_data : RewardItemData):
+	data = item_data
+"
 
 [node name="RewardItem" type="Node2D"]
-script = ExtResource("1_785gr")
+script = SubResource("GDScript_k7bxi")

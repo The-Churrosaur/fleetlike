@@ -7,12 +7,15 @@ extends CenterContainer
 @onready var selection: TextureRect = $MarginContainer/VBoxContainer/CenterContainer/Selection
 @onready var thumbnail: TextureRect = $MarginContainer/VBoxContainer/CenterContainer/Thumbnail
 
-var reward_item : RewardItem
+@onready var select_particles: GPUParticles2D = $MarginContainer/VBoxContainer/CenterContainer/Thumbnail/SelectParticles
+@onready var reward_particles: GPUParticles2D = $MarginContainer/VBoxContainer/CenterContainer/Thumbnail/RewardParticles
+
+var reward_item_data : RewardItemData
 
 
-func init(reward_item : RewardItem):
-	self.reward_item = reward_item
-	label.text = reward_item.data.title
+func load_item_and_init(data : RewardItemData):
+	reward_item_data = data
+	label.text = data.title
 
 
 func _on_margin_container_mouse_entered() -> void:
@@ -26,10 +29,21 @@ func _on_margin_container_mouse_exited() -> void:
 
 
 func reward_selected():
-	pass
+	select_particles.restart()
 
 
 func reward_deselected():
-	#var return_tween = create_tween()
-	#return_tween.tween_property(self, "position", Vector2.ZERO, 1.0)
 	pass
+
+
+func reward_rewarded():
+	reward_particles.restart()
+	reward_particles.reparent(GameGlobals.current_level)
+	modulate.a = 0
+	
+
+
+func fade():
+	var tween = create_tween()
+	tween.tween_interval(0.2)
+	tween.tween_property(self, "modulate:a", 0, 0.5)
