@@ -28,3 +28,9 @@ func spawn_ship(ship_data : ShipData):
 func _on_ship_died(ship : Ship):
 	ships.erase(ship)
 	BattleUIEventBus.ship_died.emit(ship)
+	if ships.is_empty(): defeated()
+
+
+func defeated():
+	if player_fleet: battle_manager.player_fleet_defeated()
+	else: battle_manager.enemy_fleet_defeated()

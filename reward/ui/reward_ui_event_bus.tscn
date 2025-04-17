@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bepp7snqwyu03"]
+
+[ext_resource type="Script" uid="uid://b3ydi4rejetoq" path="res://reward/ui/reward_ui_event_bus.gd" id="1_3nlm4"]
+
+[node name="RewardUIEventBus" type="Node"]
+script = ExtResource("1_3nlm4")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpqbeoth5qlon"]
+
+[ext_resource type="Script" uid="uid://bivcm8xp28m3y" path="res://battle/ship/upgrades/ship_upgrade.gd" id="1_3pg6k"]
+
+[node name="ShipUpgrade" type="Node2D"]
+script = ExtResource("1_3pg6k")

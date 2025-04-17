@@ -9,18 +9,30 @@
 
 [node name="Ship" instance=ExtResource("1_inpc4")]
 
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(-38.9993, 0)
+
 [node name="MainSprite" parent="." index="1"]
-position = Vector2(45, -8)
+position = Vector2(6.0007, -8)
 texture = ExtResource("2_j3siw")
 
 [node name="ShadowSprite" parent="MainSprite" index="0"]
 texture = ExtResource("2_j3siw")
 
+[node name="ShipDamageProcessor" parent="." index="2"]
+position = Vector2(-38.9993, 0)
+
+[node name="ExplosionFX" parent="." index="3"]
+position = Vector2(-38.9993, 0)
+
+[node name="ShipHurtbox" parent="." index="4"]
+position = Vector2(-38.9993, 0)
+
 [node name="CollisionShape2D" parent="ShipHurtbox" index="0"]
 position = Vector2(28, 0)
 
 [node name="FireControlManager_Weapon#Weapon" parent="." index="5" instance=ExtResource("19_kqxc1")]
-position = Vector2(71, 0)
+position = Vector2(32.0007, 0)
 
 [node name="Weapon" parent="FireControlManager_Weapon#Weapon" index="5" instance=ExtResource("4_j3siw")]
 
@@ -28,9 +40,22 @@ position = Vector2(71, 0)
 max_health = 200
 health = 200
 
+[node name="HoverArea" parent="." index="7"]
+position = Vector2(-38.9993, 0)
+
+[node name="WaypointManager" parent="." index="8"]
+position = Vector2(-38.9993, 0)
+
 [node name="ShipMover" parent="." index="9"]
+position = Vector2(-38.9993, 0)
 rotation_torque = 500
 thrust_force = 50
+
+[node name="FlickerDrive" parent="." index="10"]
+position = Vector2(-81.9993, 0)
+
+[node name="RcsFx" parent="." index="11"]
+position = Vector2(-38.9993, 0)
 
 [node name="fl" parent="RcsFx" index="1"]
 visible = true
@@ -41,6 +66,7 @@ visible = true
 position = Vector2(102.4, 52)
 
 [node name="FireControlManager" parent="." index="12" node_paths=PackedStringArray("weapons")]
+position = Vector2(-38.9993, 0)
 weapons = [NodePath("Weapon"), NodePath("Weapon2"), NodePath("Weapon3")]
 
 [node name="Weapon" parent="FireControlManager" index="1" instance=ExtResource("19_kqxc1")]
@@ -52,7 +78,14 @@ position = Vector2(13, 0)
 [node name="Weapon3" parent="FireControlManager" index="3" instance=ExtResource("4_j3siw")]
 position = Vector2(-36, 0)
 
+[node name="SensorHurtbox" parent="." index="13"]
+position = Vector2(-38.9993, 0)
+
+[node name="ShipAI" parent="." index="14"]
+position = Vector2(-38.9993, 0)
+
 [node name="ShipAbilityManager" parent="." index="15" node_paths=PackedStringArray("abilities")]
+position = Vector2(-38.9993, 0)
 abilities = [NodePath("TankAbility"), NodePath("ROFAbility")]
 
 [node name="TankAbility" parent="ShipAbilityManager" index="0" node_paths=PackedStringArray("ship") instance=ExtResource("5_uxa4a")]
@@ -60,3 +93,6 @@ ship = NodePath("../..")
 
 [node name="ROFAbility" parent="ShipAbilityManager" index="1" node_paths=PackedStringArray("ship") instance=ExtResource("6_6ipb6")]
 ship = NodePath("../..")
+
+[node name="ShipShield" parent="." index="16"]
+position = Vector2(-38.9993, 0)

@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://dgy8hk8u3m20q"]
+
+[ext_resource type="Script" uid="uid://b1cln4hqw0p6j" path="res://reward/reward_scene.gd" id="1_indsx"]
+[ext_resource type="PackedScene" uid="uid://duffagjvay5xp" path="res://reward/ui/reward_ui_canvas.tscn" id="2_5yrwx"]
+[ext_resource type="Script" uid="uid://bulx63il3gajo" path="res://reward/reward_item_data.gd" id="2_g2h4b"]
+[ext_resource type="Resource" uid="uid://crrpt0hgcolgt" path="res://_test_data/test_reward_item.tres" id="3_nvgew"]
+[ext_resource type="PackedScene" uid="uid://ccw35d3qcyxgk" path="res://reward/ship_shell/ship_reward_shell_container.tscn" id="5_4lx72"]
+[ext_resource type="PackedScene" uid="uid://bwrgfhwf3m0fm" path="res://reward/reward_controller.tscn" id="5_nvgew"]
+
+[node name="RewardScene" type="Node2D"]
+script = ExtResource("1_indsx")
+test_rewards = Array[ExtResource("2_g2h4b")]([ExtResource("3_nvgew"), ExtResource("3_nvgew"), ExtResource("3_nvgew")])
+
+[node name="RewardUICanvas" parent="." instance=ExtResource("2_5yrwx")]
+
+[node name="CenterContainer" type="CenterContainer" parent="RewardUICanvas"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RewardUICanvas/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="RewardUICanvas/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "BATTLE REWARDS"
+horizontal_alignment = 1
+
+[node name="RewardsContainer" type="HBoxContainer" parent="RewardUICanvas/CenterContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ShipRewardShellContainer" parent="RewardUICanvas/CenterContainer/VBoxContainer" instance=ExtResource("5_4lx72")]
+layout_mode = 2
+
+[node name="RewardController" parent="." node_paths=PackedStringArray("reward_scene") instance=ExtResource("5_nvgew")]
+reward_scene = NodePath("..")

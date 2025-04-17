@@ -2,7 +2,7 @@
 class_name LaserWeapon
 extends Weapon
 
-@export var damage = 5.0
+@export var damage = 10.0
 
 @onready var beam_timer: Timer = $BeamTimer
 

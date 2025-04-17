@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://s4yeld6eym2i"]
+[gd_scene load_steps=30 format=3 uid="uid://s4yeld6eym2i"]
 
 [ext_resource type="Script" uid="uid://27hy2qdjricv" path="res://battle/ship/ship.gd" id="1_i3cap"]
 [ext_resource type="PackedScene" uid="uid://cvrk67delgddm" path="res://battle/ship/damage/physical/ship_hurtbox.tscn" id="2_danqt"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://bainibj58svww" path="res://_fx/damage_smoke.tscn" id="20_2hj83"]
 [ext_resource type="PackedScene" uid="uid://c0dcykpa4th7m" path="res://battle/ship/abilities/ship_ability_manager.tscn" id="20_yrxkm"]
 [ext_resource type="PackedScene" uid="uid://c1rbsmd4fn7bt" path="res://battle/ship/ship_ai.tscn" id="22_irnk3"]
+[ext_resource type="PackedScene" uid="uid://dt5toad8k6ocp" path="res://battle/ship/damage/ship_shield.tscn" id="22_x5lfo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m0d6l"]
 radius = 16.0
@@ -87,7 +88,8 @@ rotation = -1.5708
 scale = Vector2(5, 5)
 health = NodePath("../../ShipHealth")
 
-[node name="ShipDamageProcessor" parent="." node_paths=PackedStringArray("health", "ship") instance=ExtResource("4_6fnym")]
+[node name="ShipDamageProcessor" parent="." node_paths=PackedStringArray("shield_health", "health", "ship") instance=ExtResource("4_6fnym")]
+shield_health = NodePath("../ShipShield/ShieldHealth")
 health = NodePath("../ShipHealth")
 ship = NodePath("..")
 
@@ -184,6 +186,12 @@ sensor = NodePath("../FireControlManager/Sensor")
 
 [node name="ShipAbilityManager" parent="." node_paths=PackedStringArray("ship") instance=ExtResource("20_yrxkm")]
 ship = NodePath("..")
+
+[node name="ShipShield" parent="." node_paths=PackedStringArray("shield_health") instance=ExtResource("22_x5lfo")]
+shield_health = NodePath("ShieldHealth")
+regen = 2.0
+
+[node name="ShieldHealth" parent="ShipShield" instance=ExtResource("12_txejx")]
 
 [connection signal="health_zero" from="ShipHealth" to="." method="_on_ship_health_health_zero"]
 [connection signal="area_entered" from="HoverArea" to="HoverArea" method="_on_area_entered"]

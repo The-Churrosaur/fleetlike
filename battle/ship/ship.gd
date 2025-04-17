@@ -6,6 +6,7 @@ extends RigidBody2D
 
 signal ship_died(ship)
 
+
 @onready var waypoint_manager: ShipWaypointManager = $WaypointManager
 @onready var ship_damage_processor: ShipDamageProcessor = $ShipDamageProcessor
 @onready var ship_health: ShipHealth = $ShipHealth
@@ -13,6 +14,8 @@ signal ship_died(ship)
 @onready var ship_ability_manager: ShipAbilityManager = $ShipAbilityManager
 @onready var weapon_positioner: WeaponPositioner = $FireControlManager/WeaponPositioner
 @onready var ship_mover: ShipMover = $ShipMover
+@onready var ship_shield: ShipShield = $ShipShield
+
 
 var player_ship = false
 var faction : CampaignGlobals.FACTIONS

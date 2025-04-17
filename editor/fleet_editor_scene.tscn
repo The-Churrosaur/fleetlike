@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bryx48y3y8yv4"]
+
+[ext_resource type="Script" uid="uid://frr6p4c55a16" path="res://editor/fleet_editor_scene.gd" id="1_u44xl"]
+
+[node name="FleetEditorScene" type="Node2D"]
+script = ExtResource("1_u44xl")

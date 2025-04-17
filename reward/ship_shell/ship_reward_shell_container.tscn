@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccw35d3qcyxgk"]
+
+[ext_resource type="Script" uid="uid://8duqulgjghg4" path="res://reward/ship_shell/ship_reward_shell_container.gd" id="1_1a83r"]
+
+[node name="ShipRewardShellContainer" type="CenterContainer"]
+script = ExtResource("1_1a83r")
+
+[node name="ShipContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 100

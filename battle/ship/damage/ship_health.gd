@@ -16,8 +16,10 @@ func change_health(change):
 	var old_health = health
 	
 	health += change
-	health_changed.emit(change, health)
 	
-	if health <= 0: 
-		health = 0
-		if old_health > 0: health_zero.emit()
+	if health > max_health: health = max_health
+	if health < 0: health = 0
+	
+	if old_health > 0 and health <= 0: health_zero.emit()
+	
+	health_changed.emit(change, health)

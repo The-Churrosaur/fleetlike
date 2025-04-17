@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://nrsd6o083pm0"]
+
+[ext_resource type="Texture2D" uid="uid://bceulvmlrme4h" path="res://_assets/ui_pale/shield_healthbar1.png" id="1_b6qjg"]
+[ext_resource type="Texture2D" uid="uid://d0ksl0sstrfyv" path="res://_assets/ui_pale/shield_healthbar_fill1.png" id="2_4s6uv"]
+[ext_resource type="Script" uid="uid://55niny345k0n" path="res://battle/ui/selected_ship/ship_shield_healthbar.gd" id="3_b6qjg"]
+
+[node name="ShieldHealthbar" type="TextureProgressBar"]
+offset_right = 64.0
+offset_bottom = 32.0
+value = 90.0
+texture_under = ExtResource("1_b6qjg")
+texture_progress = ExtResource("2_4s6uv")
+script = ExtResource("3_b6qjg")

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ilveashvrfd"]
+
+[ext_resource type="Script" uid="uid://dtc4si312t8ke" path="res://reward/ship_shell/ship_reward_shell.gd" id="1_2pntk"]
+[ext_resource type="Texture2D" uid="uid://bn5m4emn00njs" path="res://_assets/kyle/dust.png" id="2_772xn"]
+
+[node name="ShipRewardShell" type="CenterContainer"]
+script = ExtResource("1_2pntk")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_772xn")

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="FleetData" load_steps=7 format=3 uid="uid://dut8ahh1fjuj7"]
 
-[ext_resource type="Script" uid="uid://bf63qct6m5xby" path="res://fleet/fleet_data.gd" id="1_4ng2m"]
-[ext_resource type="Script" uid="uid://qaixdu0mhtc2" path="res://fleet/ship_data.gd" id="2_cmgp3"]
+[ext_resource type="Script" uid="uid://bf63qct6m5xby" path="res://_fleet_data/fleet_data.gd" id="1_4ng2m"]
+[ext_resource type="Script" uid="uid://qaixdu0mhtc2" path="res://_fleet_data/ship_data.gd" id="2_cmgp3"]
 [ext_resource type="PackedScene" uid="uid://pgkbbaiwuhrh" path="res://battle/ship/ships/goldiship.tscn" id="3_6rixd"]
 [ext_resource type="PackedScene" uid="uid://70jg8mh27mxt" path="res://battle/ship/ships/fatship.tscn" id="4_uvvwt"]
 
@@ -27,6 +27,6 @@ metadata/_custom_type_script = "uid://qaixdu0mhtc2"
 
 [resource]
 script = ExtResource("1_4ng2m")
-player_fleet = true
+player_fleet = false
 ships = Array[ExtResource("2_cmgp3")]([SubResource("Resource_gku3y"), SubResource("Resource_cjjqd")])
 metadata/_custom_type_script = "uid://bf63qct6m5xby"

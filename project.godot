@@ -20,6 +20,7 @@ config/icon="res://_assets/icon.svg"
 BattleUIEventBus="*res://battle/ui/battle_ui_event_bus.tscn"
 GameGlobals="*res://_globals/game_globals.tscn"
 CampaignGlobals="*res://_globals/campaign_globals.tscn"
+RewardUIEventBus="*res://reward/ui/reward_ui_event_bus.tscn"
 
 [input]
 

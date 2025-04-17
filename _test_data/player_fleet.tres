@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="FleetData" load_steps=11 format=3 uid="uid://b88s6hqbvl0"]
 
-[ext_resource type="Script" uid="uid://bf63qct6m5xby" path="res://fleet/fleet_data.gd" id="1_yulkn"]
-[ext_resource type="Script" uid="uid://qaixdu0mhtc2" path="res://fleet/ship_data.gd" id="2_07ypw"]
+[ext_resource type="Script" uid="uid://bf63qct6m5xby" path="res://_fleet_data/fleet_data.gd" id="1_yulkn"]
+[ext_resource type="Script" uid="uid://qaixdu0mhtc2" path="res://_fleet_data/ship_data.gd" id="2_07ypw"]
 [ext_resource type="PackedScene" uid="uid://cicmb5p8of126" path="res://battle/ship/ships/smallship.tscn" id="4_cnko7"]
 [ext_resource type="PackedScene" uid="uid://70jg8mh27mxt" path="res://battle/ship/ships/fatship.tscn" id="4_djqh6"]
 [ext_resource type="PackedScene" uid="uid://pgkbbaiwuhrh" path="res://battle/ship/ships/goldiship.tscn" id="5_cnko7"]
@@ -44,6 +44,6 @@ metadata/_custom_type_script = "uid://qaixdu0mhtc2"
 
 [resource]
 script = ExtResource("1_yulkn")
-player_fleet = false
+player_fleet = true
 ships = Array[ExtResource("2_07ypw")]([SubResource("Resource_yulkn"), SubResource("Resource_07ypw"), SubResource("Resource_djqh6")])
 metadata/_custom_type_script = "uid://bf63qct6m5xby"

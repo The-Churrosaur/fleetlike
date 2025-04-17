@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://duffagjvay5xp"]
+
+[ext_resource type="Script" uid="uid://cugvgykh7bs15" path="res://reward/ui/reward_ui_canvas.gd" id="1_m2t0r"]
+
+[node name="RewardUICanvas" type="CanvasLayer"]
+script = ExtResource("1_m2t0r")
+metadata/_custom_type_script = "uid://bh83sjfb1bsq"

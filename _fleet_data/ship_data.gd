@@ -10,3 +10,4 @@ extends Resource
 
 @export var weapons : Dictionary[int, PackedScene]
 @export var abilities : Dictionary[int, PackedScene]
+@export var upgrades : Dictionary[int, PackedScene]
