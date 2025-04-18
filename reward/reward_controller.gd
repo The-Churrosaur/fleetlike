@@ -67,7 +67,7 @@ func _on_ship_shell_unhovered(shell : ShipRewardShell):
 
 
 func _reward_selected_reward_to_ship():
-	reward_scene.process_reward(selected_reward, hovered_ship.ship_data)
+	reward_scene.process_reward(selected_reward, hovered_ship)
 	selected_reward.reward_rewarded()
 	selected_reward = null
 	select_enabled = false

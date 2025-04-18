@@ -14,12 +14,21 @@ const REWARD_SCENE = preload("res://reward/reward_scene.tscn")
 
 
 func _ready() -> void:
-	#var battle = BATTLE_MANAGER.instantiate()
-	#add_child(battle)
-	#battle.init(self)
-	#battle.load_fleets(player_fleet, enemy_fleet)
-	#GameGlobals.current_level = battle
+	GameGlobals.game_manager = self
 	
+	load_reward_scene()
+
+func load_battle_scene():
+	if GameGlobals.current_level: GameGlobals.current_level.queue_free()
+	var battle = BATTLE_MANAGER.instantiate()
+	add_child(battle)
+	battle.init(self)
+	battle.load_fleets(player_fleet, enemy_fleet)
+	GameGlobals.current_level = battle
+
+
+func load_reward_scene():
+	if GameGlobals.current_level: GameGlobals.current_level.queue_free()
 	var reward_scene = REWARD_SCENE.instantiate()
 	add_child(reward_scene)
 	reward_scene.init(self)

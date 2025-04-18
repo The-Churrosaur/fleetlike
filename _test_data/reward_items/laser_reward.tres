@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="RewardItemData" load_steps=4 format=3 uid="uid://bx83msexsa5ng"]
+
+[ext_resource type="PackedScene" uid="uid://du17wo1yxisf5" path="res://battle/ship/weapons/weapons/laser_weapon.tscn" id="1_3xpgs"]
+[ext_resource type="Script" uid="uid://bulx63il3gajo" path="res://reward/reward_item_data.gd" id="2_4ml8g"]
+[ext_resource type="Texture2D" uid="uid://6osj1td72qmh" path="res://_assets/icon.svg" id="3_r0xw7"]
+
+[resource]
+script = ExtResource("2_4ml8g")
+scene = ExtResource("1_3xpgs")
+type = 0
+thumbnail = ExtResource("3_r0xw7")
+title = "Laser"
+description = ""
+metadata/_custom_type_script = "uid://bulx63il3gajo"

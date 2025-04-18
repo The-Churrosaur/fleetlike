@@ -26,8 +26,18 @@ func spawn_ships(fleet : FleetData):
 	ship_reward_shell_container.load_fleet(fleet)
 
 
-func process_reward(reward : RewardItemUI, ship_data : ShipData = null) -> bool:
+func process_reward(reward : RewardItemUI, ship_shell : ShipRewardShell):
 	
-	#if reward.reward_item_data.type == RewardItemData.TYPE.SHIP: return false
+	var reward_data = reward.reward_item_data
+	var ship_data = ship_shell.ship_data
 	
-	return true
+	if reward_data.type == RewardItemData.TYPE.WEAPON: ship_data.weapons.append(reward_data.scene) 
+	if reward_data.type == RewardItemData.TYPE.ABILITY: ship_data.abilities.append(reward_data.scene) 
+	if reward_data.type == RewardItemData.TYPE.UPGRADE: ship_data.upgrades.append(reward_data.scene) 
+	
+	exit_reward_scene()
+
+
+func exit_reward_scene():
+	await get_tree().create_timer(4.0).timeout
+	GameGlobals.game_manager.load_battle_scene()

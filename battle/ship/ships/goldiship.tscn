@@ -60,6 +60,15 @@ weapons = [NodePath("Weapon"), NodePath("Weapon2")]
 
 [node name="Weapon2" parent="FireControlManager" index="2" instance=ExtResource("5_o8w6w")]
 
+[node name="WeaponPositioner" parent="FireControlManager" index="3" node_paths=PackedStringArray("positions")]
+positions = [NodePath("Marker2D"), NodePath("Marker2D2")]
+
+[node name="Marker2D" type="Marker2D" parent="FireControlManager/WeaponPositioner" index="0"]
+position = Vector2(0.399799, 2)
+
+[node name="Marker2D2" type="Marker2D" parent="FireControlManager/WeaponPositioner" index="1"]
+position = Vector2(84.3998, 0)
+
 [node name="SensorHurtbox" parent="." index="12"]
 position = Vector2(-34.3998, 0)
 

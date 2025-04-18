@@ -33,3 +33,5 @@ func player_fleet_defeated():
 
 func enemy_fleet_defeated():
 	BattleUIEventBus.enemy_fleet_defeated.emit()
+	await get_tree().create_timer(4.0).timeout
+	GameGlobals.game_manager.load_reward_scene()

@@ -8,6 +8,10 @@ extends Resource
 @export var faction : CampaignGlobals.FACTIONS = 0
 @export var spawn_position := Vector2.ZERO
 
-@export var weapons : Dictionary[int, PackedScene]
-@export var abilities : Dictionary[int, PackedScene]
-@export var upgrades : Dictionary[int, PackedScene]
+#@export var weapons : Dictionary[int, PackedScene]
+#@export var abilities : Dictionary[int, PackedScene]
+#@export var upgrades : Dictionary[int, PackedScene]
+
+@export var weapons : Array[PackedScene]
+@export var abilities : Array[PackedScene]
+@export var upgrades : Array[PackedScene]

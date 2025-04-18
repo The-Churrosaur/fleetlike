@@ -38,14 +38,14 @@ func load_ship(ship_data : ShipData):
 	player_ship = ship_data.player_ship
 	faction = ship_data.faction
 	
-	for i in ship_data.weapons.keys():
+	for i in ship_data.weapons.size():
 		var weapon = ship_data.weapons[i].instantiate()
 		print("LOADING WEAPON FROM DATA: ", weapon)
 		print("children:", weapon.get_children())
 		fire_control_manager.add_weapon(weapon)
 		weapon_positioner.add_weapon(weapon, i)
 	
-	for i in ship_data.abilities.keys():
+	for i in ship_data.abilities.size():
 		var ability = ship_data.abilities[i].instantiate()
 		print("LOADING ABILITY FROM DATA: ", ability)
 		ship_ability_manager.add_ability(ability)

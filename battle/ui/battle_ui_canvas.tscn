@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b4vdhj0d8j3vu"]
+[gd_scene load_steps=8 format=3 uid="uid://b4vdhj0d8j3vu"]
 
 [ext_resource type="Script" uid="uid://c3ohhx2orqkhu" path="res://battle/ui/battle_ui_canvas.gd" id="1_lswa1"]
 [ext_resource type="PackedScene" uid="uid://c0k2eppyt36hg" path="res://battle/ui/selection/area_select_line.tscn" id="2_uhqy3"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://dsl1g3wcavwqp" path="res://battle/ui/all_ships/all_ship_ui_manager.tscn" id="5_rh66m"]
 [ext_resource type="PackedScene" uid="uid://c26q84888m3d7" path="res://battle/ui/victory_ui.tscn" id="6_e1txr"]
 [ext_resource type="PackedScene" uid="uid://cl6deew4vsva3" path="res://battle/ui/defeat_ui.tscn" id="7_3xbtp"]
-[ext_resource type="PackedScene" uid="uid://dgy8hk8u3m20q" path="res://reward/reward_scene.tscn" id="8_3xbtp"]
 
 [node name="BattleUICanvas" type="CanvasLayer"]
 script = ExtResource("1_lswa1")
@@ -27,5 +26,3 @@ visible = false
 
 [node name="DefeatUI" parent="." instance=ExtResource("7_3xbtp")]
 visible = false
-
-[node name="RewardScene" parent="." instance=ExtResource("8_3xbtp")]

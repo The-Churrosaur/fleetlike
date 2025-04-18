@@ -9,6 +9,7 @@ var ship : Ship
 var ship_data : ShipData
 
 func load_ship(ship_data : ShipData):
+	self.ship_data = ship_data
 	ship = ship_data.ship_scene.instantiate()
 	add_child(ship)
 	ship.load_ship(ship_data)
