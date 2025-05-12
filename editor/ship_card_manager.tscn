@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmyqm32uiewed"]
+
+[ext_resource type="Script" uid="uid://bjx3slc2g7sa3" path="res://editor/ship_card_manager.gd" id="1_0b0ld"]
+
+[node name="ShipCardManager" type="Node2D"]
+script = ExtResource("1_0b0ld")

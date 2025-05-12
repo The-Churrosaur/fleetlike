@@ -17,6 +17,7 @@ signal ship_died(ship)
 @onready var ship_shield: ShipShield = $ShipShield
 
 
+var ship_data : ShipData
 var player_ship = false
 var faction : CampaignGlobals.FACTIONS
 
@@ -34,20 +35,20 @@ func _on_ship_health_health_zero() -> void:
 
 func load_ship(ship_data : ShipData):
 	
-	global_position = ship_data.spawn_position
+	self.ship_data = ship_data
+	
 	player_ship = ship_data.player_ship
 	faction = ship_data.faction
 	
-	for i in ship_data.weapons.size():
-		var weapon = ship_data.weapons[i].instantiate()
-		print("LOADING WEAPON FROM DATA: ", weapon)
-		print("children:", weapon.get_children())
+	var weapons = ship_data.weapons
+	for i in weapons.size():
+		var weapon = weapons[i].scene.instantiate()
 		fire_control_manager.add_weapon(weapon)
 		weapon_positioner.add_weapon(weapon, i)
 	
-	for i in ship_data.abilities.size():
-		var ability = ship_data.abilities[i].instantiate()
-		print("LOADING ABILITY FROM DATA: ", ability)
+	var abilities = ship_data.abilities
+	for i in abilities.size():
+		var ability = abilities[i].scene.instantiate()
 		ship_ability_manager.add_ability(ability)
 
 

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ShipData" load_steps=6 format=3 uid="uid://b2lgqivwpdek3"]
+
+[ext_resource type="Script" uid="uid://bulx63il3gajo" path="res://_data/reward_item_data.gd" id="1_sf5gb"]
+[ext_resource type="Resource" uid="uid://cqmh2prgtdi4n" path="res://_test_data/reward_items/tank_reward.tres" id="2_71gqg"]
+[ext_resource type="Script" uid="uid://qaixdu0mhtc2" path="res://_data/ship_data.gd" id="3_x7826"]
+[ext_resource type="PackedScene" uid="uid://70jg8mh27mxt" path="res://battle/ship/ships/fatship.tscn" id="4_vhcrq"]
+[ext_resource type="Resource" uid="uid://b36jtj7jxv05i" path="res://_test_data/reward_items/bullet_reward.tres" id="5_ghmpc"]
+
+[resource]
+script = ExtResource("3_x7826")
+ship_scene = ExtResource("4_vhcrq")
+player_ship = false
+faction = 2
+spawn_position = Vector2(1500, 1000)
+max_weapons = 3
+max_abilities = 3
+weapons = Array[ExtResource("1_sf5gb")]([ExtResource("5_ghmpc")])
+abilities = Array[ExtResource("1_sf5gb")]([ExtResource("2_71gqg")])
+upgrades = Array[ExtResource("1_sf5gb")]([])
+metadata/_custom_type_script = "uid://qaixdu0mhtc2"

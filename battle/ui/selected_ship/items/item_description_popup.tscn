@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhbw27u6gr6bk"]
+
+[ext_resource type="Script" uid="uid://cvfxh6o1wncwo" path="res://battle/ui/selected_ship/items/item_description_popup.gd" id="1_a4otc"]
+
+[node name="DescriptionPopup" type="Node2D"]
+script = ExtResource("1_a4otc")
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer2"]
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.255659, 0.255659, 0.255659, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="DescriptionLabel" type="Label" parent="MarginContainer2/MarginContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+text = "loredjsalfksda ds jfds jksdlfjsadlk kjk dskleiwoa nio idsa fjias eiwa isdajfi oisd"
+horizontal_alignment = 1
+autowrap_mode = 2

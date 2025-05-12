@@ -9,19 +9,24 @@ extends Node2D
 var battle_manager : BattleManager
 
 
-func init(fleet_data : FleetData, manager : BattleManager):
+func init(fleet_data : FleetData, manager : BattleManager, spawn_point : Vector2):
 	battle_manager = manager
 	player_fleet = fleet_data.player_fleet
 	for ship_data in fleet_data.ships: 
-		spawn_ship(ship_data)
+		spawn_ship(ship_data, spawn_point)
 
 
-func spawn_ship(ship_data : ShipData):
+func spawn_ship(ship_data : ShipData, spawn_point : Vector2):
 	var ship : Ship = ship_data.ship_scene.instantiate()
 	add_child(ship)
 	ships[ship] = true
 	ship.load_ship(ship_data)
 	ship.ship_died.connect(_on_ship_died)
+	
+	var offset = Vector2(randf_range(-battle_manager.spawn_radius, battle_manager.spawn_radius),
+						 randf_range(-battle_manager.spawn_radius, battle_manager.spawn_radius))
+	ship.global_position = spawn_point + offset
+
 	BattleUIEventBus.ship_spawned.emit(ship)
 
 

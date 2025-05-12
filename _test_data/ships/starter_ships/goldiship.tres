@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ShipData" load_steps=6 format=3 uid="uid://bg8qfhoqdi6vp"]
+
+[ext_resource type="Script" uid="uid://bulx63il3gajo" path="res://_data/reward_item_data.gd" id="1_ex15v"]
+[ext_resource type="Resource" uid="uid://57rhbcidry4i" path="res://_test_data/reward_items/boost_reward.tres" id="2_eotdq"]
+[ext_resource type="Script" uid="uid://qaixdu0mhtc2" path="res://_data/ship_data.gd" id="3_x0jx7"]
+[ext_resource type="PackedScene" uid="uid://pgkbbaiwuhrh" path="res://battle/ship/ships/goldiship.tscn" id="4_eotdq"]
+[ext_resource type="Resource" uid="uid://bx83msexsa5ng" path="res://_test_data/reward_items/laser_reward.tres" id="6_3t5ax"]
+
+[resource]
+script = ExtResource("3_x0jx7")
+ship_scene = ExtResource("4_eotdq")
+player_ship = true
+faction = 0
+spawn_position = Vector2(0, 0)
+max_weapons = 2
+max_abilities = 3
+weapons = Array[ExtResource("1_ex15v")]([ExtResource("6_3t5ax")])
+abilities = Array[ExtResource("1_ex15v")]([ExtResource("2_eotdq")])
+upgrades = Array[ExtResource("1_ex15v")]([])
+metadata/_custom_type_script = "uid://qaixdu0mhtc2"

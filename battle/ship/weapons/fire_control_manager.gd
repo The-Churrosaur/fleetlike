@@ -25,6 +25,9 @@ func init(ship):
 
 
 func fire_at_target(ship : Ship):
+	
+	if !ship.player_ship: print(self.ship," fcm firing at: ", ship)
+	
 	for weapon in weapons: if !weapon.target: weapon.fire_at_target(ship)
 
 
@@ -37,8 +40,10 @@ func assign_targets_and_fire():
 	for sensor in sensors:
 		contacts.append_array(sensor.contacts.values())
 	
-	#print("Assigning contacts: ", contacts)
-	
+	if !ship.player_ship: 
+		print(self.ship," fcm contacts: ", contacts)
+		print(contacts.size())
+		
 	if !contacts.is_empty(): fire_at_target(contacts[randi_range(0, contacts.size() - 1)]) # TODO
 	else: cease_fire()
 

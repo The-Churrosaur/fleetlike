@@ -1,6 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://bryx48y3y8yv4"]
+[gd_scene load_steps=6 format=3 uid="uid://bryx48y3y8yv4"]
 
 [ext_resource type="Script" uid="uid://frr6p4c55a16" path="res://editor/fleet_editor_scene.gd" id="1_u44xl"]
+[ext_resource type="PackedScene" uid="uid://1bqy7mk0rnau" path="res://_main/ui_canvas.tscn" id="2_7ippp"]
+[ext_resource type="PackedScene" uid="uid://ccw35d3qcyxgk" path="res://reward/ship_shell/ship_reward_shell_container.tscn" id="3_whtbf"]
+[ext_resource type="Texture2D" uid="uid://xk6rob3yl4b7" path="res://_assets/Stars.png" id="4_0xm7c"]
+[ext_resource type="Script" uid="uid://cwch57j6eqbda" path="res://battle/temp_moving_background.gd" id="5_e6r35"]
 
 [node name="FleetEditorScene" type="Node2D"]
 script = ExtResource("1_u44xl")
+
+[node name="UICanvas" parent="." instance=ExtResource("2_7ippp")]
+
+[node name="ShipRewardShellContainer" parent="UICanvas" instance=ExtResource("3_whtbf")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bg" type="CanvasLayer" parent="."]
+layer = -2
+
+[node name="Sprite2D" type="Sprite2D" parent="bg"]
+position = Vector2(961, 540)
+texture = ExtResource("4_0xm7c")
+script = ExtResource("5_e6r35")

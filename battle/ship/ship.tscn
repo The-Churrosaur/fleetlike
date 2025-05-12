@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://s4yeld6eym2i"]
+[gd_scene load_steps=31 format=3 uid="uid://s4yeld6eym2i"]
 
 [ext_resource type="Script" uid="uid://27hy2qdjricv" path="res://battle/ship/ship.gd" id="1_i3cap"]
 [ext_resource type="PackedScene" uid="uid://cvrk67delgddm" path="res://battle/ship/damage/physical/ship_hurtbox.tscn" id="2_danqt"]
@@ -22,6 +22,9 @@
 [ext_resource type="PackedScene" uid="uid://c0dcykpa4th7m" path="res://battle/ship/abilities/ship_ability_manager.tscn" id="20_yrxkm"]
 [ext_resource type="PackedScene" uid="uid://c1rbsmd4fn7bt" path="res://battle/ship/ship_ai.tscn" id="22_irnk3"]
 [ext_resource type="PackedScene" uid="uid://dt5toad8k6ocp" path="res://battle/ship/damage/ship_shield.tscn" id="22_x5lfo"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_irnk3"]
+height = 126.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m0d6l"]
 radius = 16.0
@@ -65,7 +68,7 @@ script = ExtResource("1_i3cap")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_m0d6l")
+shape = SubResource("CapsuleShape2D_irnk3")
 
 [node name="MainSprite" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -171,7 +174,8 @@ weapons = [null, null]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FireControlManager/Sensor"]
 shape = SubResource("CircleShape2D_yrxkm")
 
-[node name="WeaponPositioner" parent="FireControlManager" instance=ExtResource("18_yrxkm")]
+[node name="WeaponPositioner" parent="FireControlManager" node_paths=PackedStringArray("ship") instance=ExtResource("18_yrxkm")]
+ship = NodePath("../..")
 
 [node name="SensorHurtbox" parent="." node_paths=PackedStringArray("ship") instance=ExtResource("19_6fnym")]
 ship = NodePath("..")

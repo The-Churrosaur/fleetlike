@@ -1,11 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://70jg8mh27mxt"]
+[gd_scene load_steps=3 format=3 uid="uid://70jg8mh27mxt"]
 
 [ext_resource type="PackedScene" uid="uid://s4yeld6eym2i" path="res://battle/ship/ship.tscn" id="1_inpc4"]
 [ext_resource type="Texture2D" uid="uid://c51cs8t4vhjle" path="res://_assets/kyle/kyleship2.png" id="2_j3siw"]
-[ext_resource type="PackedScene" uid="uid://xuffogoyvqeb" path="res://battle/ship/weapons/weapons/bullet_weapon.tscn" id="4_j3siw"]
-[ext_resource type="PackedScene" uid="uid://dlcser1ol38j8" path="res://battle/ship/abilities/abilities/tank_ability.tscn" id="5_uxa4a"]
-[ext_resource type="PackedScene" uid="uid://ij4ejcno46ve" path="res://battle/ship/abilities/abilities/rof_ability.tscn" id="6_6ipb6"]
-[ext_resource type="PackedScene" uid="uid://du17wo1yxisf5" path="res://battle/ship/weapons/weapons/laser_weapon.tscn" id="19_kqxc1"]
 
 [node name="Ship" instance=ExtResource("1_inpc4")]
 
@@ -31,30 +27,25 @@ position = Vector2(-38.9993, 0)
 [node name="CollisionShape2D" parent="ShipHurtbox" index="0"]
 position = Vector2(28, 0)
 
-[node name="FireControlManager_Weapon#Weapon" parent="." index="5" instance=ExtResource("19_kqxc1")]
-position = Vector2(32.0007, 0)
-
-[node name="Weapon" parent="FireControlManager_Weapon#Weapon" index="5" instance=ExtResource("4_j3siw")]
-
-[node name="ShipHealth" parent="." index="6"]
+[node name="ShipHealth" parent="." index="5"]
 max_health = 200
 health = 200
 
-[node name="HoverArea" parent="." index="7"]
+[node name="HoverArea" parent="." index="6"]
 position = Vector2(-38.9993, 0)
 
-[node name="WaypointManager" parent="." index="8"]
+[node name="WaypointManager" parent="." index="7"]
 position = Vector2(-38.9993, 0)
 
-[node name="ShipMover" parent="." index="9"]
+[node name="ShipMover" parent="." index="8"]
 position = Vector2(-38.9993, 0)
 rotation_torque = 500
 thrust_force = 50
 
-[node name="FlickerDrive" parent="." index="10"]
+[node name="FlickerDrive" parent="." index="9"]
 position = Vector2(-81.9993, 0)
 
-[node name="RcsFx" parent="." index="11"]
+[node name="RcsFx" parent="." index="10"]
 position = Vector2(-38.9993, 0)
 
 [node name="fl" parent="RcsFx" index="1"]
@@ -65,20 +56,11 @@ position = Vector2(98.4, -53)
 visible = true
 position = Vector2(102.4, 52)
 
-[node name="FireControlManager" parent="." index="12" node_paths=PackedStringArray("weapons")]
+[node name="FireControlManager" parent="." index="11" node_paths=PackedStringArray("weapons")]
 position = Vector2(-38.9993, 0)
-weapons = [NodePath("Weapon"), NodePath("Weapon2"), NodePath("Weapon3")]
+weapons = []
 
-[node name="Weapon" parent="FireControlManager" index="1" instance=ExtResource("19_kqxc1")]
-position = Vector2(92, 0)
-
-[node name="Weapon2" parent="FireControlManager" index="2" instance=ExtResource("4_j3siw")]
-position = Vector2(13, 0)
-
-[node name="Weapon3" parent="FireControlManager" index="3" instance=ExtResource("4_j3siw")]
-position = Vector2(-36, 0)
-
-[node name="WeaponPositioner" parent="FireControlManager" index="4" node_paths=PackedStringArray("positions")]
+[node name="WeaponPositioner" parent="FireControlManager" index="1" node_paths=PackedStringArray("positions")]
 positions = [NodePath("Marker2D"), NodePath("Marker2D2"), NodePath("Marker2D3")]
 
 [node name="Marker2D" type="Marker2D" parent="FireControlManager/WeaponPositioner" index="0"]
@@ -90,21 +72,14 @@ position = Vector2(33.9993, 0)
 [node name="Marker2D3" type="Marker2D" parent="FireControlManager/WeaponPositioner" index="2"]
 position = Vector2(95.9993, 0)
 
-[node name="SensorHurtbox" parent="." index="13"]
+[node name="SensorHurtbox" parent="." index="12"]
 position = Vector2(-38.9993, 0)
 
-[node name="ShipAI" parent="." index="14"]
+[node name="ShipAI" parent="." index="13"]
 position = Vector2(-38.9993, 0)
 
-[node name="ShipAbilityManager" parent="." index="15" node_paths=PackedStringArray("abilities")]
+[node name="ShipAbilityManager" parent="." index="14"]
 position = Vector2(-38.9993, 0)
-abilities = [NodePath("TankAbility"), NodePath("ROFAbility")]
 
-[node name="TankAbility" parent="ShipAbilityManager" index="0" node_paths=PackedStringArray("ship") instance=ExtResource("5_uxa4a")]
-ship = NodePath("../..")
-
-[node name="ROFAbility" parent="ShipAbilityManager" index="1" node_paths=PackedStringArray("ship") instance=ExtResource("6_6ipb6")]
-ship = NodePath("../..")
-
-[node name="ShipShield" parent="." index="16"]
+[node name="ShipShield" parent="." index="15"]
 position = Vector2(-38.9993, 0)

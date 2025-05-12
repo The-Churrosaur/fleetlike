@@ -11,8 +11,14 @@ var ship : Ship
 func init(ship):
 	self.ship = ship
 	
+	print("Abilitycontainer init:", ship.ship_ability_manager.abilities )
+	
 	for i in ship.ship_ability_manager.abilities.size():
 		var ability = ship.ship_ability_manager.abilities[i]
 		var ability_ui = ABILITY_UI.instantiate()
 		ability_ui.init(ability, i)
 		h_box_container.add_child(ability_ui)
+
+
+func _on_mouse_entered() -> void:
+	print("test abilities container mouseentered")

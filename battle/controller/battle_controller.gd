@@ -45,6 +45,14 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("ui_ability_3"):
 		_activate_ship_ability(2)
+	
+	
+	if event.is_action_pressed("ui_focus_next"):
+		_toggle_ship_info()
+	
+	
+	if event.is_action_pressed("ui_hold_orientation"):
+		_toggle_ship_hold_orientation()
 
 
 # -- ship moving
@@ -60,9 +68,21 @@ func _add_ship_waypoint():
 		ship.waypoint_manager.add_waypoint(get_global_mouse_position())
 
 
+func _toggle_ship_hold_orientation():
+	for ship : Ship in ship_selection_manager.selected_ships.keys():
+		ship.ship_mover.hold_orientation = !ship.ship_mover.hold_orientation
+
+
 # -- ship abilities
 
 
 func _activate_ship_ability(index):
 	for ship : Ship in ship_selection_manager.selected_ships.keys():
 		ship.ship_ability_manager.activate_ability(index)
+
+
+# -- ship ui
+
+
+func _toggle_ship_info():
+	BattleUIEventBus.toggle_ship_info.emit()

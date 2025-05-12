@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7mjmicq8kdp6"]
+
+[ext_resource type="Script" uid="uid://njel3c34eus3" path="res://battle/ui/selected_ship/selected_ship_ui_static.gd" id="1_5froy"]
+[ext_resource type="PackedScene" uid="uid://bg7d2fn6ctm4l" path="res://battle/ui/selected_ship/items/item_display.tscn" id="2_b2ppc"]
+
+[node name="SelectedShipUIStatic" type="MarginContainer"]
+script = ExtResource("1_5froy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "SHIP INFO"
+horizontal_alignment = 1
+
+[node name="ItemDisplay" parent="VBoxContainer" instance=ExtResource("2_b2ppc")]
+layout_mode = 2

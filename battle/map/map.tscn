@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://ux6ikkwr24a7"]
+
+[ext_resource type="Texture2D" uid="uid://xk6rob3yl4b7" path="res://_assets/Stars.png" id="1_qhsoi"]
+[ext_resource type="Script" uid="uid://6pi7ei7h6qb1" path="res://battle/map/map.gd" id="1_ub8eq"]
+[ext_resource type="Script" uid="uid://cwch57j6eqbda" path="res://battle/temp_moving_background.gd" id="2_3x5dn"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nx1yf"]
+distance = 5000.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ub8eq"]
+normal = Vector2(0, 1)
+distance = 5000.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_idag3"]
+normal = Vector2(-1, 0)
+distance = 5000.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qkwr7"]
+normal = Vector2(1, 0)
+distance = 5000.0
+
+[node name="Map" type="Node2D"]
+script = ExtResource("1_ub8eq")
+
+[node name="bg" type="CanvasLayer" parent="."]
+layer = -2
+
+[node name="Sprite2D" type="Sprite2D" parent="bg"]
+position = Vector2(959, 540)
+texture = ExtResource("1_qhsoi")
+script = ExtResource("2_3x5dn")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_nx1yf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_ub8eq")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_idag3")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_qkwr7")

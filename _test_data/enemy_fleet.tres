@@ -1,34 +1,12 @@
-[gd_resource type="Resource" script_class="FleetData" load_steps=7 format=3 uid="uid://dut8ahh1fjuj7"]
+[gd_resource type="Resource" script_class="FleetData" load_steps=5 format=3 uid="uid://dut8ahh1fjuj7"]
 
-[ext_resource type="Script" uid="uid://bf63qct6m5xby" path="res://_fleet_data/fleet_data.gd" id="1_4ng2m"]
-[ext_resource type="Script" uid="uid://qaixdu0mhtc2" path="res://_fleet_data/ship_data.gd" id="2_cmgp3"]
-[ext_resource type="PackedScene" uid="uid://pgkbbaiwuhrh" path="res://battle/ship/ships/goldiship.tscn" id="3_6rixd"]
-[ext_resource type="PackedScene" uid="uid://70jg8mh27mxt" path="res://battle/ship/ships/fatship.tscn" id="4_uvvwt"]
-
-[sub_resource type="Resource" id="Resource_gku3y"]
-script = ExtResource("2_cmgp3")
-ship_scene = ExtResource("3_6rixd")
-player_ship = false
-faction = 2
-spawn_position = Vector2(500, 500)
-weapons = Dictionary[int, PackedScene]({})
-abilities = Dictionary[int, PackedScene]({})
-upgrades = Dictionary[int, PackedScene]({})
-metadata/_custom_type_script = "uid://qaixdu0mhtc2"
-
-[sub_resource type="Resource" id="Resource_cjjqd"]
-script = ExtResource("2_cmgp3")
-ship_scene = ExtResource("4_uvvwt")
-player_ship = false
-faction = 2
-spawn_position = Vector2(1000, 1000)
-weapons = Dictionary[int, PackedScene]({})
-abilities = Dictionary[int, PackedScene]({})
-upgrades = Dictionary[int, PackedScene]({})
-metadata/_custom_type_script = "uid://qaixdu0mhtc2"
+[ext_resource type="Script" uid="uid://bf63qct6m5xby" path="res://_data/fleet_data.gd" id="1_4ng2m"]
+[ext_resource type="Script" uid="uid://qaixdu0mhtc2" path="res://_data/ship_data.gd" id="2_cmgp3"]
+[ext_resource type="Resource" uid="uid://bgjw1vl27cm2h" path="res://_test_data/ships/enemy_ships/smallship_enemy.tres" id="3_4ng2m"]
+[ext_resource type="Resource" uid="uid://b2lgqivwpdek3" path="res://_test_data/ships/enemy_ships/fatship_enemy.tres" id="4_cmgp3"]
 
 [resource]
 script = ExtResource("1_4ng2m")
 player_fleet = false
-ships = Array[ExtResource("2_cmgp3")]([SubResource("Resource_gku3y"), SubResource("Resource_cjjqd")])
+ships = Array[ExtResource("2_cmgp3")]([ExtResource("3_4ng2m"), ExtResource("4_cmgp3")])
 metadata/_custom_type_script = "uid://bf63qct6m5xby"

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://ckfdui6g7pnlv"]
 
 [ext_resource type="Script" uid="uid://emxpvqmftq7n" path="res://battle/battle_manager.gd" id="1_t73rl"]
-[ext_resource type="PackedScene" uid="uid://ux6ikkwr24a7" path="res://battle/map.tscn" id="2_xin7u"]
+[ext_resource type="PackedScene" uid="uid://ux6ikkwr24a7" path="res://battle/map/map.tscn" id="2_xin7u"]
 [ext_resource type="PackedScene" uid="uid://d32mj4aiu8e4n" path="res://battle/controller/battle_controller.tscn" id="3_xin7u"]
 [ext_resource type="PackedScene" uid="uid://dxlbx2oqqnti3" path="res://battle/camera/battle_camera.tscn" id="4_cpgs5"]
 [ext_resource type="PackedScene" uid="uid://b4vdhj0d8j3vu" path="res://battle/ui/battle_ui_canvas.tscn" id="4_n2upc"]
@@ -13,6 +13,8 @@ ui_canvas = NodePath("BattleUICanvas")
 camera = NodePath("BattleCamera")
 
 [node name="Map" parent="." instance=ExtResource("2_xin7u")]
+
+[node name="PlayerSpawn" type="Marker2D" parent="Map"]
 
 [node name="BattleController" parent="." node_paths=PackedStringArray("battle_manager") instance=ExtResource("3_xin7u")]
 battle_manager = NodePath("..")

@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://sqe6gq842p2o"]
+
+[ext_resource type="Script" uid="uid://bpjga3r5yphqo" path="res://reward/card_slot.gd" id="1_5418h"]
+
+[node name="CardSlot" type="MarginContainer"]
+custom_minimum_size = Vector2(128, 128)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5418h")
+
+[node name="InnerContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="InnerContainer" to="." method="_on_inner_container_mouse_entered"]
+[connection signal="mouse_exited" from="InnerContainer" to="." method="_on_inner_container_mouse_exited"]

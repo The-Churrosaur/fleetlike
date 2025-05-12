@@ -1,17 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://cicmb5p8of126"]
+[gd_scene load_steps=2 format=3 uid="uid://cicmb5p8of126"]
 
 [ext_resource type="PackedScene" uid="uid://s4yeld6eym2i" path="res://battle/ship/ship.tscn" id="1_lk2dw"]
-[ext_resource type="PackedScene" uid="uid://xuffogoyvqeb" path="res://battle/ship/weapons/weapons/bullet_weapon.tscn" id="2_5fpf3"]
-[ext_resource type="PackedScene" uid="uid://umw0vxu3h5pd" path="res://battle/ship/abilities/abilities/boost_ability.tscn" id="3_b3eqy"]
 
 [node name="Ship" instance=ExtResource("1_lk2dw")]
 
 [node name="FireControlManager" parent="." index="11" node_paths=PackedStringArray("weapons")]
-weapons = [NodePath("Weapon")]
+weapons = []
 
-[node name="Weapon" parent="FireControlManager" index="1" instance=ExtResource("2_5fpf3")]
-
-[node name="WeaponPositioner" parent="FireControlManager" index="2" node_paths=PackedStringArray("positions")]
+[node name="WeaponPositioner" parent="FireControlManager" index="1" node_paths=PackedStringArray("positions")]
 positions = [NodePath("Marker2D"), NodePath("Marker2D2")]
 
 [node name="Marker2D" type="Marker2D" parent="FireControlManager/WeaponPositioner" index="0"]
@@ -19,12 +15,3 @@ position = Vector2(14, 0)
 
 [node name="Marker2D2" type="Marker2D" parent="FireControlManager/WeaponPositioner" index="1"]
 position = Vector2(-28, 0)
-
-[node name="ShipAbilityManager" parent="." index="14" node_paths=PackedStringArray("abilities")]
-abilities = [NodePath("BoostAbility"), NodePath("BoostAbility2")]
-
-[node name="BoostAbility" parent="ShipAbilityManager" index="0" node_paths=PackedStringArray("ship") instance=ExtResource("3_b3eqy")]
-ship = NodePath("../..")
-
-[node name="BoostAbility2" parent="ShipAbilityManager" index="1" node_paths=PackedStringArray("ship") instance=ExtResource("3_b3eqy")]
-ship = NodePath("../..")

@@ -15,3 +15,5 @@ script = ExtResource("1_3jbly")
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
 alignment = 2
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

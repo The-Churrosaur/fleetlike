@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="RewardItemData" load_steps=4 format=3 uid="uid://b36jtj7jxv05i"]
+
+[ext_resource type="PackedScene" uid="uid://xuffogoyvqeb" path="res://battle/ship/weapons/weapons/bullet_weapon.tscn" id="1_3cu47"]
+[ext_resource type="Script" uid="uid://bulx63il3gajo" path="res://_data/reward_item_data.gd" id="2_icmlq"]
+[ext_resource type="Texture2D" uid="uid://c6xjlg1kru1mv" path="res://_assets/kyle/widget.png" id="3_io3q3"]
+
+[resource]
+script = ExtResource("2_icmlq")
+scene = ExtResource("1_3cu47")
+type = 0
+thumbnail = ExtResource("3_io3q3")
+title = "Missiles"
+description = "Weapon 
+
+Heavy damage, but can be dodged"
+metadata/_custom_type_script = "uid://bulx63il3gajo"

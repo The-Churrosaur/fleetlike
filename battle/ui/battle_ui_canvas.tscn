@@ -17,12 +17,24 @@ default_color = Color(0, 1, 0, 1)
 
 [node name="HoverSpriteManager" parent="." instance=ExtResource("3_04aly")]
 
-[node name="SelectedShipUIManager" parent="." instance=ExtResource("4_72tqc")]
+[node name="SelectedShipUIManager" parent="." node_paths=PackedStringArray("static_ui_parent") instance=ExtResource("4_72tqc")]
+static_ui_parent = NodePath("../ShipStaticUIContainer/HBoxContainer")
 
 [node name="AllShipUIManager" parent="." instance=ExtResource("5_rh66m")]
 
 [node name="VictoryUI" parent="." instance=ExtResource("6_e1txr")]
-visible = false
+mouse_filter = 2
 
 [node name="DefeatUI" parent="." instance=ExtResource("7_3xbtp")]
 visible = false
+mouse_filter = 2
+
+[node name="ShipStaticUIContainer" type="MarginContainer" parent="."]
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ShipStaticUIContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20

@@ -1,46 +1,13 @@
-[gd_resource type="Resource" script_class="FleetData" load_steps=9 format=3 uid="uid://b88s6hqbvl0"]
+[gd_resource type="Resource" script_class="FleetData" load_steps=6 format=3 uid="uid://b88s6hqbvl0"]
 
-[ext_resource type="Script" uid="uid://bf63qct6m5xby" path="res://_fleet_data/fleet_data.gd" id="1_yulkn"]
-[ext_resource type="Script" uid="uid://qaixdu0mhtc2" path="res://_fleet_data/ship_data.gd" id="2_07ypw"]
-[ext_resource type="PackedScene" uid="uid://cicmb5p8of126" path="res://battle/ship/ships/smallship.tscn" id="4_cnko7"]
-[ext_resource type="PackedScene" uid="uid://70jg8mh27mxt" path="res://battle/ship/ships/fatship.tscn" id="4_djqh6"]
-[ext_resource type="PackedScene" uid="uid://pgkbbaiwuhrh" path="res://battle/ship/ships/goldiship.tscn" id="5_cnko7"]
-
-[sub_resource type="Resource" id="Resource_yulkn"]
-script = ExtResource("2_07ypw")
-ship_scene = ExtResource("4_djqh6")
-player_ship = true
-faction = 0
-spawn_position = Vector2(100, 100)
-weapons = Array[PackedScene]([])
-abilities = Array[PackedScene]([])
-upgrades = Array[PackedScene]([])
-metadata/_custom_type_script = "uid://qaixdu0mhtc2"
-
-[sub_resource type="Resource" id="Resource_07ypw"]
-script = ExtResource("2_07ypw")
-ship_scene = ExtResource("4_cnko7")
-player_ship = true
-faction = 0
-spawn_position = Vector2(50, 50)
-weapons = Array[PackedScene]([])
-abilities = Array[PackedScene]([])
-upgrades = Array[PackedScene]([])
-metadata/_custom_type_script = "uid://qaixdu0mhtc2"
-
-[sub_resource type="Resource" id="Resource_djqh6"]
-script = ExtResource("2_07ypw")
-ship_scene = ExtResource("5_cnko7")
-player_ship = true
-faction = 0
-spawn_position = Vector2(150, 150)
-weapons = Array[PackedScene]([])
-abilities = Array[PackedScene]([])
-upgrades = Array[PackedScene]([])
-metadata/_custom_type_script = "uid://qaixdu0mhtc2"
+[ext_resource type="Script" uid="uid://bf63qct6m5xby" path="res://_data/fleet_data.gd" id="1_yulkn"]
+[ext_resource type="Script" uid="uid://qaixdu0mhtc2" path="res://_data/ship_data.gd" id="2_07ypw"]
+[ext_resource type="Resource" uid="uid://8xuxy0btecd5" path="res://_test_data/ships/starter_ships/fatship_data.tres" id="3_cnko7"]
+[ext_resource type="Resource" uid="uid://bg8qfhoqdi6vp" path="res://_test_data/ships/starter_ships/goldiship.tres" id="4_0fbd8"]
+[ext_resource type="Resource" uid="uid://bmlrsckxnh1qi" path="res://_test_data/ships/starter_ships/smallship.tres" id="5_cnko7"]
 
 [resource]
 script = ExtResource("1_yulkn")
 player_fleet = true
-ships = Array[ExtResource("2_07ypw")]([SubResource("Resource_yulkn"), SubResource("Resource_07ypw"), SubResource("Resource_djqh6")])
+ships = Array[ExtResource("2_07ypw")]([ExtResource("3_cnko7"), ExtResource("4_0fbd8"), ExtResource("5_cnko7")])
 metadata/_custom_type_script = "uid://bf63qct6m5xby"

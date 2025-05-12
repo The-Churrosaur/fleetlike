@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqjb1n1ktx0os"]
+
+[ext_resource type="Script" uid="uid://bkfm3uo53xfoo" path="res://battle/ui/selected_ship/items/item_ui.gd" id="1_xwryx"]
+[ext_resource type="Texture2D" uid="uid://6osj1td72qmh" path="res://_assets/icon.svg" id="2_3yeam"]
+[ext_resource type="PackedScene" uid="uid://dhbw27u6gr6bk" path="res://battle/ui/selected_ship/items/item_description_popup.tscn" id="3_lx7op"]
+
+[node name="ItemUI" type="MarginContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -45.5
+offset_right = 32.0
+offset_bottom = 45.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xwryx")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_3yeam")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+clip_text = true
+
+[node name="DescriptionPopup" parent="VBoxContainer" instance=ExtResource("3_lx7op")]
+visible = false
+z_index = 2
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

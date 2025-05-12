@@ -1,6 +1,6 @@
 
 class_name ShipRewardShellContainer
-extends CenterContainer
+extends Container
 
 
 const SHIP_REWARD_SHELL = preload("res://reward/ship_shell/ship_reward_shell.tscn")

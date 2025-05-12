@@ -7,6 +7,8 @@ extends Level
 
 const FLEET_MANAGER = preload("res://battle/fleet_manager.tscn")
 
+@onready var player_spawn: Marker2D = $Map/PlayerSpawn
+
 var player_fleet : FleetManager
 var enemy_fleet : FleetManager
 
@@ -23,7 +25,7 @@ func load_fleets(player_fleet_data, enemy_fleet_data):
 func load_fleet(fleet_data : FleetData):
 	var fleet = FLEET_MANAGER.instantiate()
 	add_child(fleet)
-	fleet.init(fleet_data, self)
+	fleet.init(fleet_data, self, player_spawn.global_position)
 	return fleet
 
 
@@ -33,5 +35,3 @@ func player_fleet_defeated():
 
 func enemy_fleet_defeated():
 	BattleUIEventBus.enemy_fleet_defeated.emit()
-	await get_tree().create_timer(4.0).timeout
-	GameGlobals.game_manager.load_reward_scene()

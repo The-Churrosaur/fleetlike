@@ -1,10 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://pgkbbaiwuhrh"]
+[gd_scene load_steps=3 format=3 uid="uid://pgkbbaiwuhrh"]
 
 [ext_resource type="PackedScene" uid="uid://s4yeld6eym2i" path="res://battle/ship/ship.tscn" id="1_fkl3g"]
 [ext_resource type="Texture2D" uid="uid://1oimbdegdj8a" path="res://_assets/kyle/kyleship.png" id="2_47iak"]
-[ext_resource type="PackedScene" uid="uid://ij4ejcno46ve" path="res://battle/ship/abilities/abilities/rof_ability.tscn" id="4_47iak"]
-[ext_resource type="PackedScene" uid="uid://umw0vxu3h5pd" path="res://battle/ship/abilities/abilities/boost_ability.tscn" id="5_b2qox"]
-[ext_resource type="PackedScene" uid="uid://du17wo1yxisf5" path="res://battle/ship/weapons/weapons/laser_weapon.tscn" id="5_o8w6w"]
 
 [node name="Ship" instance=ExtResource("1_fkl3g")]
 
@@ -54,13 +51,9 @@ position = Vector2(-34.3998, 0)
 
 [node name="FireControlManager" parent="." index="11" node_paths=PackedStringArray("weapons")]
 position = Vector2(-34.3998, 0)
-weapons = [NodePath("Weapon"), NodePath("Weapon2")]
+weapons = []
 
-[node name="Weapon" parent="FireControlManager" index="1" instance=ExtResource("5_o8w6w")]
-
-[node name="Weapon2" parent="FireControlManager" index="2" instance=ExtResource("5_o8w6w")]
-
-[node name="WeaponPositioner" parent="FireControlManager" index="3" node_paths=PackedStringArray("positions")]
+[node name="WeaponPositioner" parent="FireControlManager" index="1" node_paths=PackedStringArray("positions")]
 positions = [NodePath("Marker2D"), NodePath("Marker2D2")]
 
 [node name="Marker2D" type="Marker2D" parent="FireControlManager/WeaponPositioner" index="0"]
@@ -75,15 +68,8 @@ position = Vector2(-34.3998, 0)
 [node name="ShipAI" parent="." index="13"]
 position = Vector2(-34.3998, 0)
 
-[node name="ShipAbilityManager" parent="." index="14" node_paths=PackedStringArray("abilities")]
+[node name="ShipAbilityManager" parent="." index="14"]
 position = Vector2(-34.3998, 0)
-abilities = [NodePath("ROFAbility"), NodePath("BoostAbility")]
-
-[node name="ROFAbility" parent="ShipAbilityManager" index="0" node_paths=PackedStringArray("ship") instance=ExtResource("4_47iak")]
-ship = NodePath("../..")
-
-[node name="BoostAbility" parent="ShipAbilityManager" index="1" node_paths=PackedStringArray("ship") instance=ExtResource("5_b2qox")]
-ship = NodePath("../..")
 
 [node name="ShipShield" parent="." index="15"]
 position = Vector2(-34.3998, 0)

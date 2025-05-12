@@ -1,16 +1,31 @@
-[gd_scene load_steps=8 format=3 uid="uid://dgy8hk8u3m20q"]
+[gd_scene load_steps=16 format=3 uid="uid://dgy8hk8u3m20q"]
 
 [ext_resource type="Script" uid="uid://b1cln4hqw0p6j" path="res://reward/reward_scene.gd" id="1_indsx"]
-[ext_resource type="Script" uid="uid://bulx63il3gajo" path="res://reward/reward_item_data.gd" id="2_4lx72"]
+[ext_resource type="Script" uid="uid://bulx63il3gajo" path="res://_data/reward_item_data.gd" id="2_4lx72"]
 [ext_resource type="PackedScene" uid="uid://duffagjvay5xp" path="res://reward/ui/reward_ui_canvas.tscn" id="2_5yrwx"]
+[ext_resource type="Script" uid="uid://23fpmil0kves" path="res://_data/loot_table_data.gd" id="2_uuyo8"]
 [ext_resource type="Resource" uid="uid://crrpt0hgcolgt" path="res://_test_data/reward_items/test_reward_item.tres" id="3_nvgew"]
 [ext_resource type="Resource" uid="uid://bx83msexsa5ng" path="res://_test_data/reward_items/laser_reward.tres" id="4_iui0k"]
+[ext_resource type="Resource" uid="uid://57rhbcidry4i" path="res://_test_data/reward_items/boost_reward.tres" id="4_uja7h"]
 [ext_resource type="PackedScene" uid="uid://ccw35d3qcyxgk" path="res://reward/ship_shell/ship_reward_shell_container.tscn" id="5_4lx72"]
 [ext_resource type="PackedScene" uid="uid://bwrgfhwf3m0fm" path="res://reward/reward_controller.tscn" id="5_nvgew"]
+[ext_resource type="Resource" uid="uid://b36jtj7jxv05i" path="res://_test_data/reward_items/bullet_reward.tres" id="5_o2d0w"]
+[ext_resource type="PackedScene" uid="uid://sqe6gq842p2o" path="res://reward/card_slot.tscn" id="6_4r4dj"]
+[ext_resource type="Resource" uid="uid://cqmh2prgtdi4n" path="res://_test_data/reward_items/tank_reward.tres" id="7_q4son"]
+[ext_resource type="Texture2D" uid="uid://xk6rob3yl4b7" path="res://_assets/Stars.png" id="8_bxvx8"]
+[ext_resource type="Script" uid="uid://cwch57j6eqbda" path="res://battle/temp_moving_background.gd" id="9_4r4dj"]
 
-[node name="RewardScene" type="Node2D"]
+[sub_resource type="Resource" id="Resource_eu8pd"]
+script = ExtResource("2_uuyo8")
+table = Array[ExtResource("2_4lx72")]([ExtResource("4_uja7h"), ExtResource("5_o2d0w"), ExtResource("4_iui0k"), ExtResource("7_q4son"), ExtResource("3_nvgew")])
+metadata/_custom_type_script = "uid://23fpmil0kves"
+
+[node name="RewardScene" type="Node2D" node_paths=PackedStringArray("card_slots", "rewards_container", "ship_reward_shell_container")]
 script = ExtResource("1_indsx")
-test_rewards = Array[ExtResource("2_4lx72")]([ExtResource("3_nvgew"), ExtResource("4_iui0k"), ExtResource("3_nvgew")])
+reward_table = SubResource("Resource_eu8pd")
+card_slots = [NodePath("RewardUICanvas/CenterContainer/VBoxContainer/CenterContainer/VBoxContainer/RewardsContainer/CardSlot"), NodePath("RewardUICanvas/CenterContainer/VBoxContainer/CenterContainer/VBoxContainer/RewardsContainer/CardSlot2"), NodePath("RewardUICanvas/CenterContainer/VBoxContainer/CenterContainer/VBoxContainer/RewardsContainer/CardSlot3")]
+rewards_container = NodePath("RewardUICanvas/CenterContainer/VBoxContainer/CenterContainer/VBoxContainer/RewardsContainer")
+ship_reward_shell_container = NodePath("RewardUICanvas/CenterContainer/VBoxContainer/CenterContainer/VBoxContainer/ShipRewardShellContainer")
 
 [node name="RewardUICanvas" parent="." instance=ExtResource("2_5yrwx")]
 
@@ -25,17 +40,49 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Label" type="Label" parent="RewardUICanvas/CenterContainer/VBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="RewardUICanvas/CenterContainer/VBoxContainer"]
 layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RewardUICanvas/CenterContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="RewardUICanvas/CenterContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
 text = "SELECT UPGRADE"
 horizontal_alignment = 1
 
-[node name="RewardsContainer" type="HBoxContainer" parent="RewardUICanvas/CenterContainer/VBoxContainer"]
+[node name="RewardsContainer" type="HBoxContainer" parent="RewardUICanvas/CenterContainer/VBoxContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 20
 alignment = 1
 
-[node name="ShipRewardShellContainer" parent="RewardUICanvas/CenterContainer/VBoxContainer" instance=ExtResource("5_4lx72")]
+[node name="CardSlot" parent="RewardUICanvas/CenterContainer/VBoxContainer/CenterContainer/VBoxContainer/RewardsContainer" instance=ExtResource("6_4r4dj")]
+layout_mode = 2
+
+[node name="CardSlot2" parent="RewardUICanvas/CenterContainer/VBoxContainer/CenterContainer/VBoxContainer/RewardsContainer" instance=ExtResource("6_4r4dj")]
+layout_mode = 2
+
+[node name="CardSlot3" parent="RewardUICanvas/CenterContainer/VBoxContainer/CenterContainer/VBoxContainer/RewardsContainer" instance=ExtResource("6_4r4dj")]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="RewardUICanvas/CenterContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "APPLY TO SHIP"
+horizontal_alignment = 1
+
+[node name="ShipRewardShellContainer" parent="RewardUICanvas/CenterContainer/VBoxContainer/CenterContainer/VBoxContainer" instance=ExtResource("5_4lx72")]
 layout_mode = 2
 
 [node name="RewardController" parent="." node_paths=PackedStringArray("reward_scene") instance=ExtResource("5_nvgew")]
 reward_scene = NodePath("..")
+
+[node name="bg" type="CanvasLayer" parent="."]
+layer = -2
+
+[node name="Sprite2D" type="Sprite2D" parent="bg"]
+position = Vector2(961, 540)
+texture = ExtResource("8_bxvx8")
+script = ExtResource("9_4r4dj")
